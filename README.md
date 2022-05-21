@@ -26,7 +26,7 @@ Once the extension is installed a new extension is listed at the pane Extension 
 
 By clicking at PGAdmin4 icon the extension main window will show the this extension in action
 
-[Screenshot of the extension inside Docker Desktop](screenshot1.png?raw=true)
+![Screenshot of the extension inside Docker Desktop](screenshot1.png?raw=true)
 
 at the top left at the screen an ScreenshotMonitorIcon show in red PGAdmin backend is not ready yet and green backend ready to work.
 
@@ -49,6 +49,6 @@ which means for a PGAdmin Add New Server:
 
 by choosing Save Password, above password is stored at PGAdmin4 internal storage and will remains until you de-install this extension.
 
-[Screenshot of Add New Server](screenshot2.png?raw=true)
+![Screenshot of Add New Server](screenshot2.png?raw=true)
 
 
