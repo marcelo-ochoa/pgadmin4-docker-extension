@@ -1,0 +1,14 @@
+{
+  "icon": "pgadmin.svg",
+  "vm": {
+    "composefile": "docker-compose.yml",
+    "exposes": { "socket": "docker.sock" }
+  },
+  "ui": {
+    "dashboard-tab": {
+      "title": "PGAdmin4",
+      "root": "/ui",
+      "src": "index.html"
+    }
+  }
+}

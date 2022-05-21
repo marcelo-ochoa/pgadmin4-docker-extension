@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <base href="http://localhost:9080/">
+    <title>pgAdmin 4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- To set pgAdmin4 shortcut icon in browser -->
+    <link rel="shortcut icon" href="/favicon.ico?ver=60900"/>
+
+    <!-- Base template stylesheets -->
+    <link type="text/css" rel="stylesheet" href="/static/js/generated/style.css?ver=60900"/>
+    <link type="text/css" rel="stylesheet" href="/static/js/generated/pgadmin.style.css?ver=60900"/>
+        <link type="text/css" rel="stylesheet" href="/static/js/generated/pgadmin.css?ver=60900" data-theme="standard"/>
+
+     <!--View specified stylesheets-->
+    <link type="text/css" rel="stylesheet" href="/browser/browser.css?ver=60900"/>
+
+    <script type="application/javascript">
+        /* This is used to change publicPath of webpack at runtime */
+        window.resourceBasePath = "/static/js/generated/";
+    </script>
+    <!-- Base template scripts -->
+    <script type="application/javascript"
+            src="/static/vendor/require/require.min.js?ver=60900"></script>
+    <script type="application/javascript">
+            require.config({
+                baseUrl: '',
+                urlArgs: 'ver=60900',
+                waitSeconds: 0,
+                shim: {},
+                paths: {
+                    sources: "/static/js",
+                    datagrid: "/static/js/generated/datagrid",
+                    sqleditor: "/static/js/generated/sqleditor",
+                    'pgadmin.browser.utils': "/browser/" + "js/utils",
+                    'pgadmin.browser.endpoints': "/browser/" + "js/endpoints",
+                    'pgadmin.browser.messages': "/browser/" + "js/messages",
+                    'pgadmin.browser.constants': "/browser/" + "js/constants",
+                    'pgadmin.server.supported_servers': "/browser/" + "server/supported_servers",
+                    'pgadmin.user_management.current_user': "/user_management/" + "current_user",
+                    'translations': "/tools/" + "translations"
+                }
+            });
+
+    </script>
+    <!-- View specified scripts -->
+    <script type="application/javascript" src="/static/js/generated/vendor.main.js?ver=60900" ></script>
+    <script type="application/javascript" src="/static/js/generated/vendor.others.js?ver=60900" ></script>
+    <script type="application/javascript" src="/static/js/generated/pgadmin_commons.js?ver=60900" ></script>
+
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="pg-spinner" class="pg-sp-container">
+  <div class="pg-sp-content">
+    <div class="row"><div class="col-12 pg-sp-icon"></div></div>
+    <div class="row"><div class="col-12 pg-sp-text">Loading pgAdmin 4 v6.9...</div></div>
+  </div>
+</div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark pg-navbar">
+    <a class="navbar-brand pgadmin_header_logo" onClick="return false;" href="#"
+       title="pgAdmin 4 logo" aria-label="{ config.APP_NAME }} logo">
+        <i class="app-icon pg-icon" aria-hidden="true"></i>
+    </a>
+    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-menu" role="navigation">
+
+        <ul class="navbar-nav mr-auto">
+            <li id="mnu_file" class="nav-item active dropdown d-none">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">File <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu"></ul>
+            </li>
+            <li id="mnu_obj" class="nav-item active dropdown ">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Object <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu"></ul>
+            </li>
+            <li id="mnu_management" class="nav-item active dropdown d-none">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Management <span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-hidden="true"></ul>
+            </li>
+            <li id="mnu_tools" class="nav-item active dropdown d-none">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu"></ul>
+            </li>
+            <li id="mnu_help" class="nav-item active dropdown d-none">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
+                <ul class="dropdown-menu help_menu" role="menu"></ul>
+            </li>
+        </ul>
+            </div>
+</nav>
+
+<div id="dockerContainer" class="pg-docker"></div>
+
+
+<script type="application/javascript">
+            try {
+require(
+['sources/generated/app.bundle', 'sources/generated/codemirror', 'sources/generated/browser_nodes', 'sources/generated/slickgrid'],
+function() {
+},
+function() {
+/* TODO:: Show proper error dialog */
+console.log(arguments);
+});
+} catch (err) {
+/* Show proper error dialog */
+console.log(err);
+}
+/*
+ * Show loading spinner till every js module is loaded completely
+ * Referenced url:
+ * http://stackoverflow.com/questions/15581563/requirejs-load-script-progress
+ * Little bit tweaked as per need
+ */
+require.onResourceLoad = function (context, map, depMaps) {
+  var loadingStatusEl = panel = document.getElementById('pg-spinner');
+  if (loadingStatusEl) {
+    if (!context) {
+      // we will call onResourceLoad(false) by ourselves when requirejs
+      // is not loading anything d-none the indicator and exit
+      setTimeout(function() {
+        if (panel != null) {
+            try{
+                $(panel).remove();
+            }
+            catch(e){
+                panel.outerHTML = "";
+                delete panel;
+            }
+          return;
+        }
+      }, 500);
+    }
+
+    // show indicator when any module is loaded and
+    // shedule requirejs status (loading/idle) check
+    panel.style.display = "";
+    clearTimeout(panel.ttimer);
+    panel.ttimer = setTimeout(function () {
+      var context = require.s.contexts._;
+      var inited = true;
+      for (name in context.registry) {
+        var m = context.registry[name];
+        if (m.inited !== true) {
+          inited = false;
+          break;
+        }
+      }
+
+      // here the "inited" variable will be true, if requirejs is "idle",
+      // false if "loading"
+      if (inited) {
+        // will fire if module loads in 400ms. TODO: reset this timer
+        // for slow module loading
+        require.onResourceLoad(false);
+      }
+    }, 400)
+  }
+};
+
+</script>
+
+</body>
+</html>
