@@ -28,9 +28,9 @@ By clicking at PGAdmin4 icon the extension main window will show the this extens
 
 ![Screenshot of the extension inside Docker Desktop](screenshot1.png?raw=true)
 
-at the top left at the screen an ScreenshotMonitorIcon show in red PGAdmin backend is not ready yet and green backend ready to work.
+at the top left at the screen a [ScreenshotMonitorIcon](https://mui.com/material-ui/material-icons/?selected=ScreenshotMonitor) show in red PGAdmin backend is not ready yet and the green backend is ready to work.
 
-First loggin will ask you for a master password for pgAdmin, fill it with your master password a click OK.
+First loggin will ask you for a master password for pgAdmin, fill it with your master password and click OK.
 
 By clicking on Add New Server you can add PostgreSQL server running on Docker Desktop or externals, the IP for PostgreSQL running in Docker Desktop is available at the menu, Settings -> Resources -> Network -> Docker subnet, in my case is 192.168.65.0/24 so an internal IP for reaching PostgreSQL containers running at Docker Desktop will be 192.168.65.2.
 
@@ -47,8 +47,10 @@ which means for a PGAdmin Add New Server:
 - Username: postgres
 - Password: postgrespw
 
-by choosing Save Password, above password is stored at PGAdmin4 internal storage and will remains until you de-install this extension.
+by choosing Save Password, the above password is stored at PGAdmin4 internal storage and will remain until you de-install this extension.
 
 ![Screenshot of Add New Server](screenshot2.png?raw=true)
 
+### Knowns caveats
 
+For some reasons that I don't know if you are using PGAdmin Docker Desktop Extension and want to switch to another extension such as Disk Usage by clicking at left side pane Extensions (Beta) -> Disk Usage main windows focus still at PGAdmin Extension, as a workaround just click on some left main pane options such as Home or Containers and go back to the desire extension. This problem is visible also when using Logs Explorer and the extension is showing a lot of logs.
