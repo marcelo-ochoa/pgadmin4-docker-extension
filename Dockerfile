@@ -20,12 +20,12 @@ LABEL org.opencontainers.image.title="PGAdmin" \
     org.opencontainers.image.description="pgAdmin PostgreSQL Tools" \
     org.opencontainers.image.vendor="Marcelo Ochoa" \
     com.docker.desktop.extension.api.version=">= 0.2.3" \
-    com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://foo.bar/screenshot1.png\"}, {\"alt\":\"Add Server\", \"url\":\"https://foo.bar/screenshot2.png\"}]" \
+    com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot1.png\"}, {\"alt\":\"Add Server\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot2.png\"}]" \
     com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/pgadmin4-docker-extension" \
-    com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://foo.bar/docs\"}, {\"title\":\"Privacy policy\",\"url\":\"https://foo.bar/privacy-policy\"}]" \
+    com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/README.md\"}, {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/LICENSE\"}]" \
     com.docker.extension.detailed-description="Docker Extension for using PGAdmin Desktop tool" \
-    com.docker.extension.changelog="https://hub.docker.com/repository/docker/mochoa/pgadmin4-docker-extension/CHANGELOG.md" \
-    com.docker.desktop.extension.icon="https://hub.docker.com/repository/docker/mochoa/pgadmin4-docker-extension/favicon.ico"
+    com.docker.extension.changelog="https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/CHANGELOG.md" \
+    com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/favicon.ico"
 
 COPY pgadmin.svg .
 COPY screenshot1.png .

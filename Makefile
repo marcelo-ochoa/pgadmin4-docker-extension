@@ -8,8 +8,8 @@ IMAGE_NAME=$(ORG)/pgadmin4-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION).${MINOR}
 
 clean:
-	-docker extension remove $(ORG)/pgadmin-docker-extension
-	-docker rmi $(IMAGE_NAME)
+	-docker extension rm $(IMAGE_NAME)
+	-docker rmi $(TAGGED_IMAGE_NAME)
 
 extension:
 	docker build -t $(TAGGED_IMAGE_NAME) --build-arg VERSION=$(VERSION) --build-arg PGADMIN_IMAGE_NAME=$(PGADMIN_IMAGE_NAME) .
