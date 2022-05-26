@@ -20,6 +20,8 @@ Extension UI tab "PGAdmin4" added.
 Extension "PGAdmin" installed successfully
 ```
 
+**Note**: Docker Extension CLI is required to execute above command, follow the instructions at [Extension SDK (Beta) -> Prerequisites](https://docs.docker.com/desktop/extensions-sdk/#prerequisites) page for instructions on how to add it.
+
 ## Using PGAdmin Docker Extension
 
 Once the extension is installed a new extension is listed at the pane Extension (Beta) of Docker Desktop.
