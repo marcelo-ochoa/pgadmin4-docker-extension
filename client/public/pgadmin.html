@@ -1,184 +1,472 @@
 
+
+
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
+    <base href="https://www.pgadmin.org/" target="_parent">
+    <!-- Google Tag Manager -->
+    <script>
+    var DNT = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack || window.msDoNotTrack;
+    if ((DNT != "1") && (DNT != "yes")) {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WCFG9CD');
+    }
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Template rendered: 8th June 2022 11:11:19 -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <base href="http://localhost:9080/">
-    <title>pgAdmin 4</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/COMPILED/assets/img/favicon.ico">
+
+    <title>pgAdmin - PostgreSQL Tools</title>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .filter-white {
+            filter: brightness(0) invert(1);
+        }
+        .icon-postgres-alt-0 {
+            background: url("/static/COMPILED/assets/img/postgres-alt.svg");
+            display: inline-block;
+            vertical-align: middle;
+            font-size: inherit;
+            color: #fff;
+            height: 1.5em;
+            width: 1.5em;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/static/COMPILED/assets/css/main.css?e63f452b" />
+
+    <script>
+        var cb = function () {
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = '/static/COMPILED/assets/css/main_uncritical.css?e63f452b';
+            var h = document.getElementsByTagName('head')[0];
+            h.parentNode.insertBefore(l, h);
+        };
+        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+            webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(cb);
+        else window.addEventListener('load', cb);
+    </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- To set pgAdmin4 shortcut icon in browser -->
-    <link rel="shortcut icon" href="/favicon.ico?ver=60900"/>
-
-    <!-- Base template stylesheets -->
-    <link type="text/css" rel="stylesheet" href="/static/js/generated/style.css?ver=60900"/>
-    <link type="text/css" rel="stylesheet" href="/static/js/generated/pgadmin.style.css?ver=60900"/>
-        <link type="text/css" rel="stylesheet" href="/static/js/generated/pgadmin.css?ver=60900" data-theme="standard"/>
-
-     <!--View specified stylesheets-->
-    <link type="text/css" rel="stylesheet" href="/browser/browser.css?ver=60900"/>
-
-    <script type="application/javascript">
-        /* This is used to change publicPath of webpack at runtime */
-        window.resourceBasePath = "/static/js/generated/";
-    </script>
-    <!-- Base template scripts -->
-    <script type="application/javascript"
-            src="/static/vendor/require/require.min.js?ver=60900"></script>
-    <script type="application/javascript">
-            require.config({
-                baseUrl: '',
-                urlArgs: 'ver=60900',
-                waitSeconds: 0,
-                shim: {},
-                paths: {
-                    sources: "/static/js",
-                    datagrid: "/static/js/generated/datagrid",
-                    sqleditor: "/static/js/generated/sqleditor",
-                    'pgadmin.browser.utils': "/browser/" + "js/utils",
-                    'pgadmin.browser.endpoints': "/browser/" + "js/endpoints",
-                    'pgadmin.browser.messages': "/browser/" + "js/messages",
-                    'pgadmin.browser.constants': "/browser/" + "js/constants",
-                    'pgadmin.server.supported_servers': "/browser/" + "server/supported_servers",
-                    'pgadmin.user_management.current_user': "/user_management/" + "current_user",
-                    'translations': "/tools/" + "translations"
-                }
-            });
-
-    </script>
-    <!-- View specified scripts -->
-    <script type="application/javascript" src="/static/js/generated/vendor.main.js?ver=60900" ></script>
-    <script type="application/javascript" src="/static/js/generated/vendor.others.js?ver=60900" ></script>
-    <script type="application/javascript" src="/static/js/generated/pgadmin_commons.js?ver=60900" ></script>
-
 </head>
 <body>
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
+    <div>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+            <a class="navbar-brand" href="http://localhost:9080/" target="_parent"><div class="icon-postgres-alt-0 filter-white mr-1"></div> pgAdmin</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div id="pg-spinner" class="pg-sp-container">
-  <div class="pg-sp-content">
-    <div class="row"><div class="col-12 pg-sp-icon"></div></div>
-    <div class="row"><div class="col-12 pg-sp-text">Loading pgAdmin 4 v6.9...</div></div>
-  </div>
-</div>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark pg-navbar">
-    <a class="navbar-brand pgadmin_header_logo" onClick="return false;" href="#"
-       title="pgAdmin 4 logo" aria-label="{ config.APP_NAME }} logo">
-        <i class="app-icon pg-icon" aria-hidden="true"></i>
-    </a>
-    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar-menu" role="navigation">
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav mr-auto">
+                    <!-- Home menu -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                            <a class="dropdown-item" href="/" target="_parent">Introduction</a>
+                            <a class="dropdown-item" href="/faq/">FAQ</a>
+                            <a class="dropdown-item" href="/features/">Features</a>
+                            <a class="dropdown-item" href="/news/">News Archive</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/contributing/">Contributing</a>
+                            <a class="dropdown-item" href="/licence/">Licence</a>
+                            <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+                        </div>
+                    </li>
 
-        <ul class="navbar-nav mr-auto">
-            <li id="mnu_file" class="nav-item active dropdown d-none">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">File <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu"></ul>
-            </li>
-            <li id="mnu_obj" class="nav-item active dropdown ">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Object <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu"></ul>
-            </li>
-            <li id="mnu_management" class="nav-item active dropdown d-none">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Management <span class="caret"></span></a>
-                <ul class="dropdown-menu" aria-hidden="true"></ul>
-            </li>
-            <li id="mnu_tools" class="nav-item active dropdown d-none">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu"></ul>
-            </li>
-            <li id="mnu_help" class="nav-item active dropdown d-none">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
-                <ul class="dropdown-menu help_menu" role="menu"></ul>
-            </li>
-        </ul>
+                    <!-- Development menu -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                            <a class="dropdown-item" href="/development/">Introduction</a>
+                            <a class="dropdown-item" href="/development/resources/">Resources</a>
+                            <a class="dropdown-item" href="/styleguide/typography/">Style Guide</a>
+                            <a class="dropdown-item" href="/development/translations/">Translations</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/development/team/">Team</a>
+                        </div>
+                    </li>
+
+                    <!-- Documentation menu -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                            <a class="dropdown-item" href="/docs/">Introduction</a>
+                            <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                            
+                                <a class="dropdown-item" href="/blogs/">Blog Posts</a>
+                            
+                            
+                                <a class="dropdown-item" href="/videos/">Videos</a>
+                            
+                            
+                            
+                            <a class="dropdown-header">pgAdmin 4:</a>
+                            
+                            <a class="dropdown-item"
+                               href="/docs/pgadmin4/6.10/index.html">Version 6.10</a>
+                            
+                            <a class="dropdown-item"
+                               href="/docs/pgadmin4/6.9/index.html">Version 6.9</a>
+                            
+                            <a class="dropdown-item"
+                               href="/docs/pgadmin4/6.8/index.html">Version 6.8</a>
+                            
+                            <a class="dropdown-item"
+                               href="/docs/pgadmin4/6.7/index.html">Version 6.7</a>
+                            
+                            <a class="dropdown-item"
+                               href="/docs/pgadmin4/6.6/index.html">Version 6.6</a>
+                            
+                            <a class="dropdown-item"
+                               href="/docs/pgadmin4/6.5/index.html">Version 6.5</a>
+                            
+                            <a class="dropdown-item"
+                               href="/docs/pgadmin4/development/index.html">Development</a>
+                            
+                            
+                        </div>
+                    </li>
+
+                    <!-- Download menu -->
+                    <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+                    <!-- Support menu -->
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                            <a class="dropdown-item" href="/support/">Introduction</a>
+                            <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                            <a class="dropdown-item" href="/support/issues/">Issues</a>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <form class="form-inline my-2 my-lg-0" id="search_button">
+                    <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+                        <span class="fa fa-search fa-lg pga-toolbar-search" aria-hidden="true"></span>
+                    </button>
+                </form>
+                </ul>
             </div>
-</nav>
+        </nav>
+    </div>
 
-<div id="dockerContainer" class="pg-docker"></div>
+    
+
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                <h1>pgAdmin</h1>
+                <h2>PostgreSQL Tools</h2>
+                <p class="lead">
+                    pgAdmin is the most popular and feature rich Open Source administration and development platform
+                    for PostgreSQL, the most advanced Open Source database in the world.
+                </p>
+                <p>pgAdmin may be used on Linux, Unix, macOS and Windows to manage PostgreSQL and EDB Advanced Server 10 and above.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="pga-illustration">
+                    <picture title="Screenshot of pgAdmin">
+                        <source type="image/webp" srcset="/static/COMPILED/assets/img/screenshot.webp">
+                        <source type="image/png" srcset="/static/COMPILED/assets/img/screenshot.png">
+                        <img src="/static/COMPILED/assets/img/screenshot.png" alt="Screenshot of pgAdmin">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="pga-content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Action panel -->
+            <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+                <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+    <p><a href="http://localhost:9080/" target="_parent"><i class="fa fa-laptop fa-2x" aria-hidden="true"></i><br />Launch PGAdmin Tool</a> <small><i class="fa fa-external-link-alt"></i></small></p>
+    <p><a href="/download/"><i class="fa fa-download fa-2x" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info fa-2x" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book fa-2x" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i><br />Get Help</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop fa-2x" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+
+            </div>
+
+            <div class="col-sm-8">
+                <div class="container-fluid">
+
+                    <!-- Videos -->
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>Latest Videos</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                            <div class="col-xs-12 col-md-6 col-xl-4">
+                                <div class='video-container'>
+                                    <iframe src='https://www.youtube.com/embed/i6gJnAzql6k' title='Video: Amazon RDS Deployment through pgAdmin 4' frameborder='0' allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xs-12 col-md-6 col-xl-4">
+                                <div class='video-container'>
+                                    <iframe src='https://www.youtube.com/embed/nlQOKnlF_xo' title='Video: pgAdmin Grant Wizard' frameborder='0' allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xs-12 col-md-6 col-xl-4">
+                                <div class='video-container'>
+                                    <iframe src='https://www.youtube.com/embed/VUX_ENCxHjQ' title='Video: pgAdmin: SQL Formatter' frameborder='0' allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <p class="font-italic">Want to see your pgAdmin video here? Email <a href="mailto:webmaster@pgadmin.org">webmaster@pgadmin.org</a>.</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p class="font-italic text-right"><a href="/videos/">All videos</a></p>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Blogs -->
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>Latest Blog Posts</h1>
+                            
+                            <h2>pgAdmin 4 Architecture</h2>
+                            <p><i>Author: Yogesh Mahajan, date: May 27, 2022</i></p>
+                            <p><p>pgAdmin 4 is the leading Open Source management tool for Postgres. pgAdmin is designed to monitor and manage multiple PostgreSQL and EDB Advanced Server database servers, both local and remote, through a single graphical interface that allows the easy creation and management of database objects, as well as a number of other tools for managing your databases.</p>
+
+<p>pgAdmin can be installed in two modes: Desktop & Server mode. Desktop mode is installed as a standalone application being used by the same operating system user while server mode can be accessed over the network, allowing it to be used by multiple users. </p>
+
+<p>Both mode implementations follow a 3 tier architecture approach. This blog explains the pgAdmin architecture and technologies used in both modes.</p></p>
+                            <p><a href="https://www.enterprisedb.com/blog/pgadmin-4-architecture">Read more</a> <small><i class="fa fa-external-link-alt"></i></small></p>
+                            
+                            <h2>Query Tool vs View/Edit Data</h2>
+                            <p><i>Author: Nikhil Mohitey, date: May 10, 2022</i></p>
+                            <p>Ever wondered what the differences are between the Query Tool and View/Edit Data tool in pgAdmin? In this blog Nikhil explains those differences and when each tool should be used.</p>
+                            <p><a href="https://www.enterprisedb.com/blog/query-tool-vs-viewedit-data">Read more</a> <small><i class="fa fa-external-link-alt"></i></small></p>
+                            
+                            <h2>How to Configure OAuth 2.0 with Azure AD in pgAdmin4</h2>
+                            <p><i>Author: Asmita Thapliyal, date: April 29, 2022</i></p>
+                            <p><p>pgAdmin user Asmita Thapliyal writes:</p>
+
+<p>I struggled for few days to get OAuth 2.0 configuration works for Azure AD in pgAdmin4, which leads me to writing this blog post.</p>
+
+<p>We were looking for a hosted web interface for running SELECT queries in AWS Aurora database from on premise environment. This interface would allow developers for database interaction and to perform initial troubleshooting without sharing the database credentials and whitelisting the connection from their laptops and vms.<p></p>
+                            <p><a href="https://medium.com/@asmita.thapliyal/how-to-configure-oauth-2-0-with-azure-ad-in-pgadmin4-2c1500d52d9d">Read more</a> <small><i class="fa fa-external-link-alt"></i></small></p>
+                            
+
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <p class="font-italic">Want to see your pgAdmin blog post here? Email <a href="mailto:webmaster@pgadmin.org">webmaster@pgadmin.org</a>.</p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="font-italic text-right"><a href="/blogs/">All blog posts</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- News -->
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>News</h1>
+                            
+                            <h2>2022-06-02 - pgAdmin 4 v6.10 Released</h2>
+                            <p><p>The pgAdmin Development Team is pleased to announce pgAdmin 4 version 6.10. This release of pgAdmin 4 includes 23 bug fixes and new features. For more details please see the <a href="/docs/pgadmin4/6.10/release_notes_6_10.html">release notes</a>.</p>
+ 
+<p>Notable changes in this release include:</p>
+<p><strong>Features:</strong><p>
+<ul>
+<li><strong>Added the ability to resize columns on dashboard tables.</strong></li>
+</ul>
+<p><strong>Bugs/Housekeeping:</strong><p>
+<ul>
+<li>Port connect server password dialog to React.</li>
+<li>Fixed the browser tree overlapping nodes and expansion issue.</li>
+<li>Added the ability to detect and warn users about bidirectional Unicode characters.</li>
+<li>Tell Docker to always pull the latest base images when building containers.</li>
+<li>Fixed an issue with geometry window zoom mouse scroll not working.</li>
+<li>Added support for multi-cell selection in the query tool grid.</li>
+<li>Fixed an issue where an error message fills the entire window if the query is long.</li>
+<li>Fixed an issue where geometry is not visible when a single cell is selected.</li>
+<li>Fixed an issue where comments on domain constraints were not visible when selecting a domain node.</li>
+<li>Ensure that null values are accepted for the numeric columns in react-data-grid.</li>
+</ul>
+<p><a href="/download">Download</a> your copy now!</p></p>
+                            
+                            <h2>2022-05-12 - pgAdmin 4 v6.9 Released</h2>
+                            <p><p>The pgAdmin Development Team is pleased to announce pgAdmin 4 version 6.9. This release of pgAdmin 4 includes 29 bug fixes and new features. For more details please see the <a href="/docs/pgadmin4/6.9/release_notes_6_9.html">release notes</a>.</p>
+ 
+<p>Notable changes in this release include:</p>
+<p><strong>Features:</strong><p>
+<ul>
+<li><strong>Port query tool to React.</strong></li>
+<p>This feature is a major revamp to the query tool in terms of the GUI. Some other related features have also been added to this. Some major enhancements are adding a status bar, toolbar buttons shown on the respective panels, fixing the headers of the slick grid, and many more.</p>
+<li><strong>Added options 'Ignore owner' and 'Ignore whitespace' to the schema diff panel.</strong></li>
+<p>This feature introduces the ‘ignore owner’ and ‘ignore whitespace’ options on the schema diff panel itself to provide the ease to the users to change the setting and compare the databases or schemas.</p>
+<li><strong>Added capability to deploy PostgreSQL servers on EDB BigAnimal.</strong></li>
+
+<p>This feature allows the users to deploy the PostgreSQL and EDB Advanced Server on the EDB BigAnimal Cloud.</p>
 
 
-<script type="application/javascript">
-            try {
-require(
-['sources/generated/app.bundle', 'sources/generated/codemirror', 'sources/generated/browser_nodes', 'sources/generated/slickgrid'],
-function() {
-},
-function() {
-/* TODO:: Show proper error dialog */
-console.log(arguments);
-});
-} catch (err) {
-/* Show proper error dialog */
-console.log(err);
-}
-/*
- * Show loading spinner till every js module is loaded completely
- * Referenced url:
- * http://stackoverflow.com/questions/15581563/requirejs-load-script-progress
- * Little bit tweaked as per need
- */
-require.onResourceLoad = function (context, map, depMaps) {
-  var loadingStatusEl = panel = document.getElementById('pg-spinner');
-  if (loadingStatusEl) {
-    if (!context) {
-      // we will call onResourceLoad(false) by ourselves when requirejs
-      // is not loading anything d-none the indicator and exit
-      setTimeout(function() {
-        if (panel != null) {
-            try{
-                $(panel).remove();
-            }
-            catch(e){
-                panel.outerHTML = "";
-                delete panel;
-            }
-          return;
-        }
-      }, 500);
-    }
+<li><strong>Added status bar to the Query Tool.</strong></li>
+<li><strong>Ensure that row numbers should be visible in view when scrolling horizontally.</strong></li>
+<li><strong>Relocate GIS Viewer Button to the Left Side of the Results Table.</strong></li>
+<li><strong>Added support for Azure AD OAUTH2 authentication.</strong></li>
+</ul>
+<p><strong>Bugs/Housekeeping:</strong><p>
+<ul>
+<li>Only set permissions on the storage directory upon creation.</li>
+<li>Improvement to the Geometry Viewer popup to change the size of the result tables when column names are quite long.</li>
+<li>Fixed an issue where the downloaded ERD diagram was 0 bytes.</li>
+<li>Don't strip binaries when packaging them in the server RPM as this might break cpython modules.</li>
+<li>Ensure that Columns should always be visible in the import/export dialog.</li>
+<li>Fixed an issue where the copy and paste row does not work if the first column contains no data.</li>
+<li>Fixed an issue where the Browser panel is not completely viewable.</li>
+<li>Fixed sorting issue in the statistics panel.</li>
+<li>Ensure that sorting should be preserved on refresh for Server Activity.</li>
+<li>Fixed an issue where the drag and drop table in ERD throws an error.</li>
+</ul>
+<p><a href="/download">Download</a> your copy now!</p></p>
+                            
+                            <h2>2018-07-12 - pgAgent v4.0.0 Released</h2>
+                            <p><p>The pgAdmin Development Team are pleased to announce the release of pgAgent v4.0.0.</p>
 
-    // show indicator when any module is loaded and
-    // shedule requirejs status (loading/idle) check
-    panel.style.display = "";
-    clearTimeout(panel.ttimer);
-    panel.ttimer = setTimeout(function () {
-      var context = require.s.contexts._;
-      var inited = true;
-      for (name in context.registry) {
-        var m = context.registry[name];
-        if (m.inited !== true) {
-          inited = false;
-          break;
-        }
-      }
+<p>pgAgent is a job scheduler for PostgreSQL; for more information please see the documentation included as part of the pgAdmin documentation at <a href="https://www.pgadmin.org/docs/pgadmin4/3.x/pgagent.html">https://www.pgadmin.org/docs/pgadmin4/3.x/pgagent.html</a>.</p>
 
-      // here the "inited" variable will be true, if requirejs is "idle",
-      // false if "loading"
-      if (inited) {
-        // will fire if module loads in 400ms. TODO: reset this timer
-        // for slow module loading
-        require.onResourceLoad(false);
-      }
-    }, 400)
-  }
-};
+<p>Download (source): <a href="https://www.pgadmin.org/download/pgagent-source-code/">https://www.pgadmin.org/download/pgagent-source-code/</a></p>
 
+<p>We expect DEB and RPM packages to be available from the PostgreSQL APT/YUM repositories in due course, as well as an updated installer from EnterpriseDB available through StackBuilder.</p>
+
+<p>Notable changes in this release include:</p>
+<ul>
+  <li>Remove the dependency on wxWidgets. pgAgent now uses Boost for thread management and synchronisation [Neel Patel]</li>
+  <li>Refactor connection parsing logic to fix issues with and improve handling of connection strings [Thomas Krennwallner]</li>
+  <li>Handle 2 digit server version numbers [Ashesh Vashi]</li>
+  <li>Fix handling of the "succeeded" flag on job steps which could prevent failure of steps causing the following steps to fail [Sanket Mehta]</li>
+</ul></p>
+                            
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="font-italic text-right"><a href="/news/">All news</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <! Version info -->
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="well pga-version">
+                                <p>The current version of pgAdmin 4 is
+                                    <a href="/download/">6.10</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="text-center font-italic">
+                                Postgres, PostgreSQL and the Slonik Logo are trademarks or registered
+                                trademarks of the <a href="https://www.postgres.ca">PostgreSQL Community
+                                Association of Canada</a>, and used with their permission.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad -->
+            <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+                <div aria-hidden="true">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+</div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+
+    
+
+    <script src="/static/COMPILED/webp.js?e63f452b"></script>
+    <script src="/static/COMPILED/main.js?e63f452b"></script>
+
+    <script>
+          $('#search_button').click(function(){
+
+            var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search latest docs" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+</form>';
+
+            $('#search_button').replaceWith($form);
+          });
+    </script>
+
+
+<script src="/static/COMPILED/banner.js?e63f452b"></script>
+
 
 </body>
 </html>

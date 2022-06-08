@@ -1,4 +1,4 @@
-ARG VERSION=6.9
+ARG VERSION=6.10
 ARG PGADMIN_IMAGE_NAME=dpage/pgadmin4
 FROM ${PGADMIN_IMAGE_NAME}:${VERSION} AS pgadmin4
 
@@ -17,10 +17,10 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn-${TARGETARCH} yarn bu
 FROM alpine:3.15
 
 LABEL org.opencontainers.image.title="PGAdmin" \
-    org.opencontainers.image.description="pgAdmin PostgreSQL Tools" \
+    org.opencontainers.image.description="Install a PGAdmin4 tools to monitor and manage PostgreSQL databases deployed at Docker Destop or remotely" \
     org.opencontainers.image.vendor="Marcelo Ochoa" \
     com.docker.desktop.extension.api.version=">= 0.2.3" \
-    com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot1.png\"}, {\"alt\":\"Add Server\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot2.png\"}]" \
+    com.docker.extension.screenshots="[{\"alt\":\"Welcome Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot1.png\"}, {\"alt\":\"Unlock personal Store\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot2.png\"}, {\"alt\":\"Dashboard\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot3.png\"}, {\"alt\":\"Query Tool\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot4.png\"}]" \
     com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/pgadmin4-docker-extension" \
     com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/README.md\"}, {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/LICENSE\"}]" \
     com.docker.extension.detailed-description="Docker Extension for using PGAdmin Desktop tool" \

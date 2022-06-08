@@ -2,7 +2,7 @@ version: '3'
 
 services:
   pgadmin:
-    image: dpage/pgadmin4:6.9
+    image: dpage/pgadmin4:6.10
     restart: unless-stopped
     volumes:
       - pgadmin_data:/var/lib/pgadmin
