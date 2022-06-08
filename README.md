@@ -30,10 +30,12 @@ By clicking at PGAdmin4 icon the extension main window will show the this extens
 
 ![Screenshot of the extension inside Docker Desktop](screenshot1.png?raw=true)
 
-at the top left at the screen a Monitor Icon show in red PGAdmin means backend is not ready yet and when it turn in green backend is ready to work.
+at the top left at the screen a Monitor Icon show in red means PGAdmin4 backend is not ready yet and when it turn in green backend is ready to work.
 
 - ![Monitor Red](monitor-red.png?raw=true) PGAdmin4 is not ready
 - ![Monitor Green](monitor-green.png?raw=true) PGAdmin4 ready to work
+
+When monitor indicator is green just click on **Launch PGAdmin4 Tool** link and you will see PGAdmin4 window. You can also click on **pgAdmin** icon at the top left of the extension main window.
 
 First loggin will ask you for a master password for pgAdmin, fill it with your master password and click OK.
 
