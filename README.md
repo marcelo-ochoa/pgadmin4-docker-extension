@@ -20,6 +20,8 @@ Extension UI tab "PGAdmin4" added.
 Extension "PGAdmin" installed successfully
 ```
 
+**Note**: Docker Extension CLI is required to execute above command, follow the instructions at [Extension SDK (Beta) -> Prerequisites](https://docs.docker.com/desktop/extensions-sdk/#prerequisites) page for instructions on how to add it.
+
 ## Using PGAdmin Docker Extension
 
 Once the extension is installed a new extension is listed at the pane Extension (Beta) of Docker Desktop.
@@ -36,6 +38,8 @@ at the top left at the screen a Monitor Icon show in red PGAdmin means backend i
 First loggin will ask you for a master password for pgAdmin, fill it with your master password and click OK.
 
 By clicking on Add New Server you can add PostgreSQL server running at Docker Desktop or externals, the IP for PostgreSQL running at Docker Desktop is available at the menu, Settings -> Resources -> Network -> Docker subnet, in my case is 192.168.65.0/24 so an internal IP for reaching PostgreSQL containers running at Docker Desktop will be 192.168.65.2.
+
+![Docker Desktop Subnet](https://miro.medium.com/max/700/0*m4e0OEQprx_GgUA7)
 
 Let see an example of PostgreSQL started using Docker Desktop Featured Images, PostgreSQL Overview shows this sample URL:
 
