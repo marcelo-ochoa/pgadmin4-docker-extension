@@ -16,22 +16,25 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn-${TARGETARCH} yarn bu
 
 FROM alpine:3.15
 
-LABEL org.opencontainers.image.title="PGAdmin" \
-    org.opencontainers.image.description="Install a PGAdmin4 tools to monitor and manage PostgreSQL databases deployed at Docker Destop or remotely" \
-    org.opencontainers.image.vendor="Marcelo Ochoa" \
-    com.docker.desktop.extension.api.version=">= 0.2.3" \
-    com.docker.extension.screenshots="[{\"alt\":\"Welcome Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot1.png\"}, {\"alt\":\"Unlock personal Store\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot2.png\"}, {\"alt\":\"Dashboard\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot3.png\"}, {\"alt\":\"Query Tool\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot4.png\"}]" \
-    com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/pgadmin4-docker-extension" \
-    com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/README.md\"}, {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/LICENSE\"}]" \
-    com.docker.extension.detailed-description="Docker Extension for using PGAdmin Desktop tool" \
-    com.docker.extension.changelog="https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/CHANGELOG.md" \
-    com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/favicon.ico"
+LABEL org.opencontainers.image.title="Open Source management tool for PostgreSQL"
+LABEL org.opencontainers.image.description="PGAdmin4 Desktop Extensionis is designed to monitor and manage multiple \
+    PostgreSQL and EDB Advanced Server database servers, both local and remote, \
+    through a single graphical interface that allows the easy creation and management of database objects, \
+    as well as a number of other tools for managing your databases."
+LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
+LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
+LABEL com.docker.extension.screenshots="[{\"alt\":\"Welcome Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot1.png\"},\
+    {\"alt\":\"Unlock personal Store\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot2.png\"},\
+    {\"alt\":\"Dashboard\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot3.png\"},\
+    {\"alt\":\"Query Tool\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot4.png\"}]"
+LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/pgadmin4-docker-extension"
+LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/README.md\"},\
+    {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/LICENSE\"}]"
+LABEL com.docker.extension.detailed-description="Docker Extension for using PGAdmin4 Open Source management tool for PostgreSQL"
+LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/CHANGELOG.md\">change log</a>"
+LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/favicon.ico"
 
-COPY pgadmin.svg .
-COPY screenshot1.png .
-COPY screenshot2.png .
-COPY metadata.json .
-COPY docker-compose.yml .
+COPY favicon.ico pgadmin.svg screenshot1.png screenshot2.png screenshot3.png screenshot4.png screenshot5.png monitor-red.png monitor-green.png metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
 COPY --from=pgadmin4 /pgadmin4/docs ui/docs
