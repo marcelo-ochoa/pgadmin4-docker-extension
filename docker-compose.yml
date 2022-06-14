@@ -9,6 +9,7 @@ services:
     environment:
       - "PGADMIN_DEFAULT_EMAIL=user@domain.com"
       - "PGADMIN_DEFAULT_PASSWORD=SuperSecret"
+      - "PGADMIN_DISABLE_POSTFIX=True"
       - "PGADMIN_LISTEN_PORT=9080"
       - "PGADMIN_CONFIG_LOGIN_BANNER='Authorised users only!'"
       - "PGADMIN_CONFIG_SERVER_MODE=False"
