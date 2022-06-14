@@ -27,4 +27,4 @@ multiarch:
 	docker buildx create --name=buildx-multi-arch --driver=docker-container --driver-opt=network=host
 
 build:
-	docker buildx build --push --builder=buildx-multi-arch --platform=linux/amd64 --build-arg TAG=$(TAG) --build-arg PGADMIN_IMAGE_NAME=$(PGADMIN_IMAGE_NAME) --tag=$(TAGGED_IMAGE_NAME) .
+	docker buildx build --push --builder=buildx-multi-arch --platform=linux/amd64,linux/arm64 --build-arg TAG=$(TAG) --build-arg PGADMIN_IMAGE_NAME=$(PGADMIN_IMAGE_NAME) --tag=$(TAGGED_IMAGE_NAME) .
