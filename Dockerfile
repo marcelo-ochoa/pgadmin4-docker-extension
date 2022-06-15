@@ -1,7 +1,3 @@
-ARG VERSION=6.10
-ARG PGADMIN_IMAGE_NAME=dpage/pgadmin4
-FROM ${PGADMIN_IMAGE_NAME}:${VERSION} AS pgadmin4
-
 FROM node:17.7-alpine3.14 AS client-builder
 WORKDIR /app/client
 # cache packages in layer
@@ -37,6 +33,5 @@ LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marce
 COPY favicon.ico pgadmin.svg screenshot1.png screenshot2.png screenshot3.png screenshot4.png screenshot5.png monitor-red.png monitor-green.png metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
-COPY --from=pgadmin4 /pgadmin4/docs ui/docs
 
 CMD [ "sleep", "infinity" ]

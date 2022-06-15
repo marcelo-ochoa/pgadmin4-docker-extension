@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## v6.10.0
 
 - Redefine Home Page
-- Upgrade to PGAdmin4 6.10 docker image
+- Upgrade to PGAdmin4 6.10 docker image with dark mode enabled by default
 - More screenshots
 - Desktop Extension full description
 
