@@ -37,7 +37,7 @@ at the top left at the screen a Monitor Icon show in red means PGAdmin4 backend 
 
 When monitor indicator is green just click on **PostgreSQL green icon** ![icon](monitor-green.png?raw=true) and you will see PGAdmin4 window.
 
-First loggin will ask you for a master password for pgAdmin, fill it with your master password and click OK.
+First login will ask you for a master password for pgAdmin, fill it with your master password and click OK.
 
 ![Setting master password](screenshot2.png?raw=true)
 
