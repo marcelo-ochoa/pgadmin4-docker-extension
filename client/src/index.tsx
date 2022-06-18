@@ -5,7 +5,7 @@ import AppBar from "@mui/material/AppBar";
 import { DockerMuiThemeProvider } from '@docker/docker-mui-theme';
 import { App } from './App';
 
-const iFrame = <iframe src='pgadmin.html' 
+const iFrame = <iframe src='pgAdmin.html' 
                         frameBorder={0}
                         width={"100%"}
                         height={"870"}
