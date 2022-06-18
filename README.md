@@ -35,9 +35,7 @@ at the top left at the screen a Monitor Icon show in red means PGAdmin4 backend 
 - ![Monitor Red](monitor-red.png?raw=true) PGAdmin4 is not ready
 - ![Monitor Green](monitor-green.png?raw=true) PGAdmin4 ready to work
 
-When monitor indicator is green just click on **PostgreSQL green icon** link and you will see PGAdmin4 window.
-
-You can also click on ![pgAdmin](pgadmin.svg?raw=true) icon at the top left of the extension main window.
+When monitor indicator is green just click on **PostgreSQL green icon** ![icon](monitor-green.png?raw=true) and you will see PGAdmin4 window.
 
 First loggin will ask you for a master password for pgAdmin, fill it with your master password and click OK.
 
