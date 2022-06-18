@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+    var DNT = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack || window.msDoNotTrack;
+    if ((DNT != "1") && (DNT != "yes")) {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WCFG9CD');
+    }
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Template rendered: 16th June 2022 18:33:37 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="https://www.pgadmin.org/static/COMPILED/assets/img/favicon.ico">
+
+    <title>FAQ</title>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .filter-white {
+            filter: brightness(0) invert(1);
+        }
+        .icon-postgres-alt-0 {
+            background: url("https://www.pgadmin.org/static/COMPILED/assets/img/postgres-alt.svg");
+            display: inline-block;
+            vertical-align: middle;
+            font-size: inherit;
+            color: #fff;
+            height: 1.5em;
+            width: 1.5em;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://www.pgadmin.org/static/COMPILED/assets/css/main.css?29c3ad47" />
+
+    <script>
+        var cb = function () {
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = 'https://www.pgadmin.org/static/COMPILED/assets/css/main_uncritical.css?29c3ad47';
+            var h = document.getElementsByTagName('head')[0];
+            h.parentNode.insertBefore(l, h);
+        };
+        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+            webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(cb);
+        else window.addEventListener('load', cb);
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Content -->
+        <div class="col-lg-12">
+            
+    <h1>FAQ</h1>
+
+    
+    
+    <h3>General</h3>
+    <ul>
+        
+        <li><a href="#1">What is pgAdmin 4?</a></li>
+        
+        <li><a href="#11">What browsers does pgAdmin support?</a></li>
+        
+        <li><a href="#4">Why doesn&#x27;t pgAdmin use the native File management dialogues?</a></li>
+        
+        <li><a href="#10">What is the Master Password, and how do I use it or remove it?</a></li>
+        
+    </ul>
+    
+    <h3>Configuration</h3>
+    <ul>
+        
+        <li><a href="#2">What are Server Mode and Desktop Mode?</a></li>
+        
+        <li><a href="#3">What should I set the Binary Path configuration option to so I can make and restore backups?</a></li>
+        
+    </ul>
+    
+    <h3>Troubleshooting</h3>
+    <ul>
+        
+        <li><a href="#8">How do I enable logging in pgAdmin 4?</a></li>
+        
+        <li><a href="#13">When I open the Query Tool or (other tools) in a new tab, I get &quot;Connection to server lost&quot; or &quot;CSRF tokens do not match&quot; on Safari versions &gt;= 12</a></li>
+        
+        <li><a href="#7">How do I start pgAdmin such that it outputs a log to the console?</a></li>
+        
+        <li><a href="#5">Why does pgAdmin seem to use a lot of CPU cycles?</a></li>
+        
+        <li><a href="#6">When pgAdmin runs in desktop mode on my Windows PC, I just see unformatted text on the left of the window. Why?</a></li>
+        
+        <li><a href="#9">On macOS, I get an error like: &quot;pgAdmin 4 is damaged and cannot be opened&quot;</a></li>
+        
+    </ul>
+    
+
+    
+    <h2>General</h2>
+
+    
+    <h3 id="1">What is pgAdmin 4?</h3>
+    <p>pgAdmin is a management tool for <a href="https://www.postgresql.org/">PostgreSQL</a> and derivative relational databases such as <a href="https://www.enterprisedb.com/">EnterpriseDB's</a> EDB Advanced Server. It may be run either as a web or desktop application. For more information on the features offered, please see the <a href="/features/">Features</a> and <a href="/screenshots/">Screenshots</a> pages.</p>
+    
+    <h3 id="11">What browsers does pgAdmin support?</h3>
+    <p>The following browsers are supported with pgAdmin, when run on Linux, macOS or Windows. We regularly test with a subset of the available versions, and aim to fix issues found with any of them.</p>
+
+<ul>
+  <li>Chrome 72+</li>
+  <li>Firefox 65+</li>
+  <li>Edge 44+</li>
+  <li>Safari 12+</li>
+</ul>
+
+<p>The following browsers are currently supported, but that support will cease in a future release of pgAdmin. It is strongly advised that a supported browser is used instead:</p>
+
+<ul>
+    <li>Internet Explorer 11</li>
+</ul>
+
+<p>Other browsers may work but are not tested and issues reported when using them with pgAdmin may not be fixed.</p>
+    
+    <h3 id="4">Why doesn&#x27;t pgAdmin use the native File management dialogues?</h3>
+    <p>This is largely for a couple of reasons:</p>
+
+<ul>
+  <li>As pgAdmin is a web application, it can only interact with the local filesystem in ways that are allowed by modern web browsers. This limits what is possible for security; essentially files can only be "downloaded" or "uploaded" (through a form). There is no way to simply save an update to a file by hitting a Save button, nor is it possible to save the working directory for example.</li>
+  <li>When running in server mode, files are read from and stored on the server to enable users to work with the same data whatever machine they happen to be using. There are no "native dialogues" for working with files stored on a web server in this way, so we have to implement our own.</li>
+</ul>
+
+<p>We have done extensive evaluation and testing of various ways of managing files in pgAdmin 4, and have consistently found that using our own dialogues provides the best experience (one that we continue to refine and improve with user feedback).</p>
+    
+    <h3 id="10">What is the Master Password, and how do I use it or remove it?</h3>
+    <p>The <a href="/docs/pgadmin4/latest/master_password.html">Master Password</a> is used to securely encrypt any credentials that you choose to save when using pgAdmin. Without the Master Password (or something similar that is supplied by the user), the encryption keys must be generated from data that is stored on-disk in a location known to pgAdmin. By examining the source code another user with the ability to access the encrypted passwords and the data used to generate the keys would be able to decrypt the saved passwords.</p>
+
+<p>Unfortunately this ability isn't limited to administrative users of the machine(s) containing the saved passwords and key data as you might immediately think. Malware that may have been inadvertently installed may be able to transmit the saved password database and key data to an attacker. Such malware could be part of another piece of software or something installed utilising a browser vulnerability for example.<p>
+
+<p>The Master Password mitigates this problem by ensuring that the key data is <b>never</b> stored on disk.</b>
+
+<p><i>I know my system is secure and can't possibly get infected with malware. Can I disable the Master Password?</i> Yes, though we <b>strongly</b> advise against doing so! To do so, find the <i>config.py</i> file that is part of your pgAdmin installation. This is normally in a top-level directory called <i>web</i>. In the same directory, create a file called <i>config_local.py</i>, and add a line that reads:</p>
+
+<div class="well"><pre>MASTER_PASSWORD_REQUIRED=False</pre></div>
+
+<p>If the file already exists, edit it, and add the line. When you restart pgAdmin, the Master Password will be disabled and passwords will be encrypted in an insecure manner which will protect them against "shoulder surfing", but will not prevent anyone from decrypting them fairly easily.</p>
+
+<p><i>But why can't I disable the Master Password from the GUI?</i> By requiring a change to the main configuration for pgAdmin, we allow system administrators to enforce a security policy which is often a requirement in corporate or other secure environments. At present there are no general mechanisms in pgAdmin to allow administrators to control which user preferences (those options which can be configured through the GUI) can or cannot be changed.</p>
+    
+
+
+    <h2>Configuration</h2>
+
+    
+    <h3 id="2">What are Server Mode and Desktop Mode?</h3>
+    <p>When deploying pgAdmin on a web server for multiple users, it is run in server mode (<i>SERVER_MODE = True</i>). This mode requires each user to have an account in pgAdmin, with their own password. Users are required to login to pgAdmin in order to use it. One or more users may be configured as an administrator and will be able to add or remove other users. For more information, please see the <a href="/docs/pgadmin4/dev/server_deployment.html">Server Deployment</a> and <a href="/docs/pgadmin4/dev/pgadmin_user.html">User Management</a> documentation.</p>
+
+<p>To allow running in desktop mode (<i>SERVER_MODE = False</i>), a runtime application is provided to host and display the pgAdmin code (sometimes referred to as the application server). In this mode, each user runs their own instance of pgAdmin, thus no authentication or user management is required. For more information, please see the <a href="/docs/pgadmin4/dev/desktop_deployment.html">Desktop Deployment</a> documentation.</p>
+    
+    <h3 id="3">What should I set the Binary Path configuration option to so I can make and restore backups?</h3>
+    <p>pgAdmin can utilise PostgreSQL utilities such as <i>pg_dump</i>, <i>pg_restore</i> to enable users to take backups and restore them, as well as run other maintenance operations. The directory path in which these utilities can be found must be provided to pgAdmin to enable these features - see <i>File -&gt; Preferences -&gt; Paths -&gt; Binary paths</i>. You can specify separate paths for the PostgreSQL and EDB Advanced Server binaries. In server mode, the binaries must be installed on the server hosting pgAdmin, whilst in desktop mode they must be on the local machine (that is running pgAdmin).</p>
+
+<p>The binary utilities are typically shipped with the database server packages for your platform. Future versions of pgAdmin may include them in some desktop packages.</p>
+    
+
+
+    <h2>Troubleshooting</h2>
+
+    
+    <h3 id="8">How do I enable logging in pgAdmin 4?</h3>
+    <p>The default log settings for pgAdmin will write warnings and errors to a logfile, the location of which depends on the platform:</p>
+<ul>
+  <li><b>Linux/MacOS: </b>~/.pgadmin/pgadmin4.log</li>
+  <li><b>Windows: </b>%APPDATA%\pgAdmin\pgadmin4.log</li>
+</ul>
+
+<p>To override the log settings, create a file called <i>config_local.py</i> in the <i>web/</i> directory of the installation, alongside the existing <i>config.py</i>. This file can be used to override any of the settings in <i>config.py</i> (which shouldn't be edited). To modify the logging settings, create a file similar to the following:</p>
+
+<pre>
+import logging
+
+# Application log level - one of:
+#   CRITICAL 50
+#   ERROR    40
+#   WARNING  30
+#   SQL      25
+#   INFO     20
+#   DEBUG    10
+#   NOTSET    0
+CONSOLE_LOG_LEVEL = logging.DEBUG
+FILE_LOG_LEVEL = logging.DEBUG
+
+# Log format.
+CONSOLE_LOG_FORMAT = '%(asctime)s: %(levelname)s\t%(name)s:\t%(message)s'
+FILE_LOG_FORMAT = '%(asctime)s: %(levelname)s\t%(name)s:\t%(message)s'
+
+# Log file name
+LOG_FILE = '/desired/path/to/pgadmin4.log'
+</pre>
+
+<p>Once the configuration change has been made, pgAdmin must be restarted.</p>
+    
+    <h3 id="13">When I open the Query Tool or (other tools) in a new tab, I get &quot;Connection to server lost&quot; or &quot;CSRF tokens do not match&quot; on Safari versions &gt;= 12</h3>
+    <p>This has been seen mostly on Safari browser versions >= 12, though it can happen with other browsers with non-standard configurations. It's reported that from v12 CFNetwork/Webkit which are used by Safari erroneously treat the "SameSite=none" as the equivalent of "Samesite=strict". Essentially, whilst Safari recognizes the SameSite cookie attribute starting with version 12, their implementation has a bug. For more information, see this <a href="https://developer.apple.com/forums/thread/129064">post on the Apple forums<a/> and this <a href="https://bugs.webkit.org/show_bug.cgi?id=198181"</a>WebKit bug</a>.</p>
+
+<p>To work around this issue, create a <i>config_system.py</i> as <a href="href="https://www.pgadmin.org/docs/pgadmin4/development/config_py.html">shown in the documentation</a>, and add the following options:</p>
+<pre>SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = True</pre>
+
+<p><b>Note:</b>  These changes <b>will</b> disable security options in pgAdmin. This should be used as a last resort, if and only if you have clients that are using Safari and are affected by this issue, and who cannot use an alternate browser.</p>
+    
+    <h3 id="7">How do I start pgAdmin such that it outputs a log to the console?</h3>
+    <p>If you're running in server mode, or directly using Python, then console logs will be sent directly to the tty under which the application is started.</p>
+
+<p>In desktop mode, the process varies depending on the platform:</p>
+<ul>
+  <li><b>Linux: </b>Start the desktop runtime from the command line, e.g. <i>/usr/local/pgadmin4/bin/pgadmin4</i>, adjusting the path as necessary.</li>
+  <li><b>MacOS: </b>Start the desktop runtime from the command line, e.g. <i>/Applications/pgAdmin\ 4.app/Contents/MacOS/pgAdmin4</i>, adjusting the path as necessary.</li>
+  <li><b>Windows: </b>Console logs can be written to a file from the command line on Windows, e.g. <i>"C:\Program Files\pgAdmin 4\v2\runtime\pgAdmin4.exe" > %TEMP%\pgadmin-console.log</i> will write a log to %TEMP%\pgadmin-console.log.
+</ul>
+<p>Note that you may need to adjust the CONSOLE_LOG_LEVEL option in config_local.py to see useful information in the log. See this <a href="#8">FAQ</a> for more information.</p>
+    
+    <h3 id="5">Why does pgAdmin seem to use a lot of CPU cycles?</h3>
+    <p>pgAdmin 4's architecture will naturally require more CPU and memory than a traditional native desktop application, however, pgAdmin 4 also includes continually updating dashboards that weren't present in pgAdmin III. The dashboards update each graph every second by default, even if they are not visible (to avoid gaps in the data). CPU usage may be noticably reduced by adjusting the refresh speed of the graphs to a longer period, such as ten seconds. This can be done under <i>File -&gt; Preferences -&gt; Paths -&gt; Dashboards -&gt; Graphs</i>. After changes have been made, you may need to navigate to a different dashboard instance for the changes to take effect.</p>
+    
+    <h3 id="6">When pgAdmin runs in desktop mode on my Windows PC, I just see unformatted text on the left of the window. Why?</h3>
+    <p>This behaviour has been observed by a number of users on Windows. Essentially what is happening is that the browser is ignoring the stylesheets that properly format the display. In all cases seen, this was because a registry setting on the machine had been set to an incorrect value, possibly by the installation of a particular editor. To resolve the issue, use the Windows Registry Editor to reset the value of "<i>HKEY_CLASSES_ROOT\.css\Content Type</i>" to "<i>text/css</i>" (without the quotes), and then restart pgAdmin.</p>
+    
+    <h3 id="9">On macOS, I get an error like: &quot;pgAdmin 4 is damaged and cannot be opened&quot;</h3>
+    <p>This has been seen mostly on older versions of macOS (e.g. 10.10). Unfortunately the error message is usually misleading, and the digital signature of the application will validate correctly. The actual problem is typically that the operating system is configured to only allow running of app from the Apple App store.</p>
+
+<p>To change this setting, open the <i>Preferences Panel</i> and then browse to <i>Security and Privacy</i>. From there, change the <i>Allow apps downloaded from</i> setting to <i>App Store and identified developers</i> (more secure) or <i>Anywhere</i> (less secure).<p>
+
+<p>Note that the available options and their labels vary from release to release of macOS, and may not be exactly as described above.</p>
+    
+
+
+
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    
+
+    <script src="https://www.pgadmin.org/static/COMPILED/webp.js?29c3ad47"></script>
+    <script src="https://www.pgadmin.org/static/COMPILED/main.js?29c3ad47"></script>
+
+</body>
+</html>

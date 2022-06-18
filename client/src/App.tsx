@@ -3,10 +3,13 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import ScreenshotMonitorIcon from '@mui/icons-material/ScreenshotMonitor';
 import { useState } from 'react';
 import { red } from '@mui/material/colors';
+import Container from '@mui/material/Container';
+import SvgIcon from '@mui/icons-material/ScreenshotMonitor';
+import { ReactComponent as StarIcon } from './pgadmin.svg';
+import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function SvgIconsSize(props: any) {
   return (
@@ -17,8 +20,7 @@ export default function SvgIconsSize(props: any) {
         },
       }}
     >
-
-      { props.statusOk ? <ScreenshotMonitorIcon color="success" fontSize="medium" /> : <ScreenshotMonitorIcon sx={{color: red[500], fontSize: "medium" }} /> }
+      { props.statusOk ? <SvgIcon component={StarIcon} inheritViewBox color="success" fontSize="large" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> : <CircularProgress /> }
     </Box>
   );
 }
@@ -26,6 +28,7 @@ export default function SvgIconsSize(props: any) {
 export function App() {
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [backendInfo, setBackendInfo] = useState<string | undefined>();
 
   let timer = setTimeout(() => checkBackend("http://localhost:9080/browser/"), 100);
@@ -44,6 +47,7 @@ export function App() {
   }
 
   const open = Boolean(anchorEl);
+  const pages = ['Documentation', 'FAQ', 'Support'];
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -51,27 +55,64 @@ export function App() {
     setAnchorEl(null);
   };
 
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <AppBar position="static">
+      <Container maxWidth="xl">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            pgAdmin4 Extension
+        <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            border={"1px"}
+            onClick={() => backendInfo?.startsWith("ok") ? window.location.href = "http://localhost:9080/browser/" : null }
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            <SvgIconsSize statusOk={backendInfo?.startsWith("ok")} />
           </Typography>
-          <div>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleClick}
-                color="inherit"
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="pgadmin.html"
+            target="pgadmin"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+           pgAdmin
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                href={`${page}.html`}
+                target="pgadmin"
+                sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <SvgIconsSize statusOk={backendInfo?.startsWith("ok")} />
-              </IconButton>
-          </div>
+                {page}
+              </Button>
+            ))}
+          </Box>
         </Toolbar>
-      </AppBar>
-    </Box>
+      </Container>
+    </AppBar>
   );
 }
