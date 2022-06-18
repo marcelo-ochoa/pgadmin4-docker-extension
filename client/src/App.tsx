@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-import { red } from '@mui/material/colors';
 import Container from '@mui/material/Container';
 import SvgIcon from '@mui/icons-material/ScreenshotMonitor';
 import { ReactComponent as StarIcon } from './pgadmin.svg';

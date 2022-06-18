@@ -158,7 +158,7 @@
 <p>We have done extensive evaluation and testing of various ways of managing files in pgAdmin 4, and have consistently found that using our own dialogues provides the best experience (one that we continue to refine and improve with user feedback).</p>
     
     <h3 id="10">What is the Master Password, and how do I use it or remove it?</h3>
-    <p>The <a href="/docs/pgadmin4/latest/master_password.html">Master Password</a> is used to securely encrypt any credentials that you choose to save when using pgAdmin. Without the Master Password (or something similar that is supplied by the user), the encryption keys must be generated from data that is stored on-disk in a location known to pgAdmin. By examining the source code another user with the ability to access the encrypted passwords and the data used to generate the keys would be able to decrypt the saved passwords.</p>
+    <p>The <a href="docs/master_password.html">Master Password</a> is used to securely encrypt any credentials that you choose to save when using pgAdmin. Without the Master Password (or something similar that is supplied by the user), the encryption keys must be generated from data that is stored on-disk in a location known to pgAdmin. By examining the source code another user with the ability to access the encrypted passwords and the data used to generate the keys would be able to decrypt the saved passwords.</p>
 
 <p>Unfortunately this ability isn't limited to administrative users of the machine(s) containing the saved passwords and key data as you might immediately think. Malware that may have been inadvertently installed may be able to transmit the saved password database and key data to an attacker. Such malware could be part of another piece of software or something installed utilising a browser vulnerability for example.<p>
 
@@ -178,9 +178,9 @@
 
     
     <h3 id="2">What are Server Mode and Desktop Mode?</h3>
-    <p>When deploying pgAdmin on a web server for multiple users, it is run in server mode (<i>SERVER_MODE = True</i>). This mode requires each user to have an account in pgAdmin, with their own password. Users are required to login to pgAdmin in order to use it. One or more users may be configured as an administrator and will be able to add or remove other users. For more information, please see the <a href="/docs/pgadmin4/dev/server_deployment.html">Server Deployment</a> and <a href="/docs/pgadmin4/dev/pgadmin_user.html">User Management</a> documentation.</p>
+    <p>When deploying pgAdmin on a web server for multiple users, it is run in server mode (<i>SERVER_MODE = True</i>). This mode requires each user to have an account in pgAdmin, with their own password. Users are required to login to pgAdmin in order to use it. One or more users may be configured as an administrator and will be able to add or remove other users. For more information, please see the <a href="docs/server_deployment.html">Server Deployment</a> and <a href="docs/user_management.html">User Management</a> documentation.</p>
 
-<p>To allow running in desktop mode (<i>SERVER_MODE = False</i>), a runtime application is provided to host and display the pgAdmin code (sometimes referred to as the application server). In this mode, each user runs their own instance of pgAdmin, thus no authentication or user management is required. For more information, please see the <a href="/docs/pgadmin4/dev/desktop_deployment.html">Desktop Deployment</a> documentation.</p>
+<p>To allow running in desktop mode (<i>SERVER_MODE = False</i>), a runtime application is provided to host and display the pgAdmin code (sometimes referred to as the application server). In this mode, each user runs their own instance of pgAdmin, thus no authentication or user management is required. For more information, please see the <a href="docs/desktop_deployment.html">Desktop Deployment</a> documentation.</p>
     
     <h3 id="3">What should I set the Binary Path configuration option to so I can make and restore backups?</h3>
     <p>pgAdmin can utilise PostgreSQL utilities such as <i>pg_dump</i>, <i>pg_restore</i> to enable users to take backups and restore them, as well as run other maintenance operations. The directory path in which these utilities can be found must be provided to pgAdmin to enable these features - see <i>File -&gt; Preferences -&gt; Paths -&gt; Binary paths</i>. You can specify separate paths for the PostgreSQL and EDB Advanced Server binaries. In server mode, the binaries must be installed on the server hosting pgAdmin, whilst in desktop mode they must be on the local machine (that is running pgAdmin).</p>
@@ -228,7 +228,7 @@ LOG_FILE = '/desired/path/to/pgadmin4.log'
     <h3 id="13">When I open the Query Tool or (other tools) in a new tab, I get &quot;Connection to server lost&quot; or &quot;CSRF tokens do not match&quot; on Safari versions &gt;= 12</h3>
     <p>This has been seen mostly on Safari browser versions >= 12, though it can happen with other browsers with non-standard configurations. It's reported that from v12 CFNetwork/Webkit which are used by Safari erroneously treat the "SameSite=none" as the equivalent of "Samesite=strict". Essentially, whilst Safari recognizes the SameSite cookie attribute starting with version 12, their implementation has a bug. For more information, see this <a href="https://developer.apple.com/forums/thread/129064">post on the Apple forums<a/> and this <a href="https://bugs.webkit.org/show_bug.cgi?id=198181"</a>WebKit bug</a>.</p>
 
-<p>To work around this issue, create a <i>config_system.py</i> as <a href="href="https://www.pgadmin.org/docs/pgadmin4/development/config_py.html">shown in the documentation</a>, and add the following options:</p>
+<p>To work around this issue, create a <i>config_system.py</i> as <a href="href="docs/config_py.html">shown in the documentation</a>, and add the following options:</p>
 <pre>SESSION_COOKIE_SAMESITE = None
 SESSION_COOKIE_SECURE = True</pre>
 
