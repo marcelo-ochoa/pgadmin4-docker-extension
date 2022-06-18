@@ -39,6 +39,8 @@ When monitor indicator is green just click on **PostgreSQL green icon** ![icon](
 
 First loggin will ask you for a master password for pgAdmin, fill it with your master password and click OK.
 
+![Setting master password](screenshot2.png?raw=true)
+
 By clicking on Add New Server you can add PostgreSQL server running at Docker Desktop or externals, the IP for PostgreSQL running at Docker Desktop is available at the menu, Settings -> Resources -> Network -> Docker subnet, in my case is 192.168.65.0/24 so an internal IP for reaching PostgreSQL containers running at Docker Desktop will be 192.168.65.2.
 
 ![Docker Desktop Subnet](https://miro.medium.com/max/700/0*m4e0OEQprx_GgUA7)
