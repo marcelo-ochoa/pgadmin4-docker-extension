@@ -1,8 +1,7 @@
 {
   "icon": "pgadmin.svg",
   "vm": {
-    "composefile": "docker-compose.yml",
-    "exposes": { "socket": "docker.sock" }
+    "composefile": "docker-compose.yml"
   },
   "ui": {
     "dashboard-tab": {
