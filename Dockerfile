@@ -2,17 +2,29 @@ ARG VERSION=6.10
 ARG PGADMIN_IMAGE_NAME=mochoa/pgadmin4
 FROM ${PGADMIN_IMAGE_NAME}:${VERSION} as pgadmin4
 
-FROM node:17.7-alpine3.14 AS client-builder
+FROM --platform=$BUILDPLATFORM node:17.7-alpine3.14 AS client-builder
 WORKDIR /app/client
 # cache packages in layer
 COPY client/package.json /app/client/package.json
-COPY client/yarn.lock /app/client/yarn.lock
-ARG TARGETARCH
-RUN yarn config set cache-folder /usr/local/share/.cache/yarn-${TARGETARCH}
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn-${TARGETARCH} yarn
+COPY client/package-lock.json /app/client/package-lock.json
+RUN --mount=type=cache,target=/usr/src/app/.npm \
+    npm set cache /usr/src/app/.npm && \
+    npm ci
 # install
 COPY client /app/client
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn-${TARGETARCH} yarn build
+RUN npm run build
+
+FROM golang:1.17-alpine AS builder
+ENV CGO_ENABLED=0
+WORKDIR /backend
+COPY vm/go.* .
+RUN --mount=type=cache,target=/go/pkg/mod \
+    --mount=type=cache,target=/root/.cache/go-build \
+    go mod download
+COPY vm/. .
+RUN --mount=type=cache,target=/go/pkg/mod \
+    --mount=type=cache,target=/root/.cache/go-build \
+    go build -trimpath -ldflags="-s -w" -o bin/service
 
 FROM alpine:3.15
 
@@ -20,8 +32,7 @@ LABEL org.opencontainers.image.title="Open Source management tool for PostgreSQL
 LABEL org.opencontainers.image.description="Docker Extension for using an embedeed version of PGAdmin4 Open Source management tool for PostgreSQL."
 LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
-LABEL com.docker.extension.screenshots="[{\"alt\":\"Welcome Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot1.png\"},\
-    {\"alt\":\"Unlock personal Store\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot2.png\"},\
+LABEL com.docker.extension.screenshots="[{\"alt\":\"Unlock personal Store\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/docs/images/screenshot2.png\"},\
     {\"alt\":\"Dashboard\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot3.png\"},\
     {\"alt\":\"Query Tool\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot4.png\"}]"
 LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/pgadmin4-docker-extension"
@@ -34,9 +45,10 @@ LABEL com.docker.extension.detailed-description="PGAdmin4 Desktop Extension is d
     PostgreSQL and EDB Advanced Server database servers, both local and remote, \
     through a single graphical interface that allows the easy creation and management of database objects, \
     as well as a number of other tools for managing your databases."
-COPY favicon.ico pgadmin.svg screenshot1.png screenshot2.png screenshot3.png screenshot4.png screenshot5.png monitor-red.png monitor-green.png metadata.json docker-compose.yml ./
+COPY pgadmin.svg metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
 COPY --from=pgadmin4 /pgadmin4/docs ui/docs
+COPY --from=builder /backend/bin/service /
 
-CMD [ "sleep", "infinity" ]
+CMD /service -socket /run/guest-services/pgadmin4-docker-extension.sock

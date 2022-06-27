@@ -8,7 +8,7 @@ Until this extension is ready at Docker Extension Hub you can install just by ex
 
 ```bash
 $ docker extension install mochoa/pgadmin4-docker-extension:6.10.0
-Extensions can install binaries, invoke commands and access files on your machine. 
+Extensions can install binaries, invoke commands and access files on your machine.
 Are you sure you want to continue? [y/N] y
 Image not available locally, pulling mochoa/pgadmin4-docker-extension:6.10.0...
 Installing new extension "mochoa/pgadmin4-docker-extension:6.10.0"
@@ -26,20 +26,11 @@ Extension "PGAdmin" installed successfully
 
 Once the extension is installed a new extension is listed at the pane Extension (Beta) of Docker Desktop.
 
-By clicking at PGAdmin4 icon the extension main window will show the this extension in action
-
-![Screenshot of the extension inside Docker Desktop](screenshot1.png?raw=true)
-
-at the top left at the screen a Monitor Icon show in red means PGAdmin4 backend is not ready yet and when it turn in green backend is ready to work.
-
-- ![Monitor Red](monitor-red.png?raw=true) PGAdmin4 is not ready
-- ![Monitor Green](monitor-green.png?raw=true) PGAdmin4 ready to work
-
-When monitor indicator is green just click on **PostgreSQL green icon** ![icon](monitor-green.png?raw=true) and you will see PGAdmin4 window.
+By clicking at PGAdmin4 icon the extension main window will display the PGAdmin site once it has loaded.
 
 First login will ask you for a master password for pgAdmin, fill it with your master password and click OK.
 
-![Setting master password](screenshot2.png?raw=true)
+![Setting master password](docs/images/screenshot1.png?raw=true)
 
 By clicking on Add New Server you can add PostgreSQL server running at Docker Desktop or externals, the IP for PostgreSQL running at Docker Desktop is available at the menu, Settings -> Resources -> Network -> Docker subnet, in my case is 192.168.65.0/24 so an internal IP for reaching PostgreSQL containers running at Docker Desktop will be 192.168.65.2.
 
@@ -60,7 +51,7 @@ which means for a PGAdmin Add New Server:
 
 by choosing Save Password, the above password is stored at PGAdmin4 internal storage and will remain until you de-install this extension.
 
-![Screenshot of Add New Server](screenshot5.png?raw=true)
+![Screenshot of Add New Server](docs/images/screenshot4.png?raw=true)
 
 ### Knowns caveats
 
