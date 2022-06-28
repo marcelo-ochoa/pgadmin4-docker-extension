@@ -1,6 +1,8 @@
-version: '3'
+version: "3"
 
 services:
+  pgadmin4-docker-extension:
+    image: ${DESKTOP_PLUGIN_IMAGE}
   pgadmin:
     image: mochoa/pgadmin4:6.10
     restart: unless-stopped
@@ -14,7 +16,7 @@ services:
       - "PGADMIN_CONFIG_LOGIN_BANNER='Authorised users only!'"
       - "PGADMIN_CONFIG_SERVER_MODE=False"
       - "PGADMIN_CONFIG_X_FRAME_OPTIONS=''"
-      - "PGADMIN_CONFIG_CONTENT_SECURITY_POLICY=\"default-src http: data: 'unsafe-inline' 'unsafe-eval';\""
+      - 'PGADMIN_CONFIG_CONTENT_SECURITY_POLICY="default-src http: data: ''unsafe-inline'' ''unsafe-eval'';"'
       - "PGADMIN_CONFIG_STRICT_TRANSPORT_SECURITY_ENABLED=True"
       - "PGADMIN_CONFIG_SESSION_COOKIE_SAMESITE='None'"
       - "PGADMIN_CONFIG_SESSION_COOKIE_SECURE=True"
