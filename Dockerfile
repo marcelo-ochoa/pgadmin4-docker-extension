@@ -33,14 +33,14 @@ LABEL org.opencontainers.image.description="Docker Extension for using an embede
 LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
 LABEL com.docker.extension.screenshots="[{\"alt\":\"Unlock personal Store\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/docs/images/screenshot2.png\"},\
-    {\"alt\":\"Dashboard\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot3.png\"},\
-    {\"alt\":\"Query Tool\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/screenshot4.png\"}]"
+    {\"alt\":\"Dashboard\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/docs/images/screenshot3.png\"},\
+    {\"alt\":\"Query Tool\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/docs/images/screenshot4.png\"}]"
 LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/pgadmin4-docker-extension"
 LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/README.md\"},\
     {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/LICENSE\"}]"
 LABEL com.docker.extension.detailed-description="Docker Extension for using PGAdmin4 Open Source management tool for PostgreSQL"
 LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/pgadmin4-docker-extension/blob/main/CHANGELOG.md\">change log</a>"
-LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/favicon.ico"
+LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/client/public/favicon.ico"
 LABEL com.docker.extension.detailed-description="PGAdmin4 Desktop Extension is designed to monitor and manage multiple \
     PostgreSQL and EDB Advanced Server database servers, both local and remote, \
     through a single graphical interface that allows the easy creation and management of database objects, \
