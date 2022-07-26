@@ -32,7 +32,7 @@ First login will ask you for a master password for pgAdmin, fill it with your ma
 
 ![Setting master password](docs/images/screenshot1.png?raw=true)
 
-By clicking on Add New Server you can add PostgreSQL server running at Docker Desktop or externals, the IP for PostgreSQL running at Docker Desktop is available at the menu, Settings -> Resources -> Network -> Docker subnet, in my case is 192.168.65.0/24 so an internal IP for reaching PostgreSQL containers running at Docker Desktop will be 192.168.65.2.
+By clicking on Add New Server you can add PostgreSQL server running at Docker Desktop or externals, the IP for PostgreSQL running at Docker Desktop is available at the menu, Settings -> Resources -> Network -> Docker subnet, in my case is 192.168.65.0/24 so an internal IP for reaching PostgreSQL containers running at Docker Desktop will be 192.168.65.2, also there is an internal DNS name that resolve above IP named **host.docker.internal**.
 
 ![Docker Desktop Subnet](https://miro.medium.com/max/700/0*m4e0OEQprx_GgUA7)
 
@@ -43,7 +43,7 @@ postgres://postgres:postgrespw@localhost:55000
 which means for a PGAdmin Add New Server:
 
 - Name: Test
-- Hostname/address: 192.168.65.2
+- Hostname/address: host.docker.internal
 - Port: 55000
 - Maintenance database: postgres
 - Username: postgres

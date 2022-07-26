@@ -18,7 +18,7 @@ func main() {
 
 	os.RemoveAll(socketPath)
 
-	logrus.New().Infof("Starting listening on %s\n", socketPath)
+	logrus.New().Infof("Starting listening on %s", socketPath)
 	router := echo.New()
 	router.HideBanner = true
 
