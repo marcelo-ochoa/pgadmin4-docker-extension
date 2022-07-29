@@ -2,9 +2,13 @@
 
 PGAdmin4 extension for Docker Desktop
 
+## Installation from Makertplace
+
+Since Docker Desktop [v4.11.0](https://docs.docker.com/desktop/release-notes/#docker-desktop-4110) PGAdmin4 Extension is available in Marketplace page, just click on **+ Add Extensions**, find PGAdmin4 Extension, click Install and that's all; PGAdmin4 icon its shown at left side menu (Extensions Beta).
+
 ## Manual Installation
 
-Until this extension is ready at Docker Extension Hub you can install just by executing:
+If you are using Docker Desktop [v4.10.1](https://docs.docker.com/desktop/release-notes/#docker-desktop-4101) or less  you can install just by executing:
 
 ```bash
 $ docker extension install mochoa/pgadmin4-docker-extension:6.10.0
@@ -52,7 +56,3 @@ which means for a PGAdmin Add New Server:
 by choosing Save Password, the above password is stored at PGAdmin4 internal storage and will remain until you de-install this extension.
 
 ![Screenshot of Add New Server](docs/images/screenshot4.png?raw=true)
-
-### Knowns caveats
-
-For some reasons that I don't know if you are using PGAdmin Docker Desktop Extension and want to switch to another extension such as Disk Usage by clicking at left side pane Extensions (Beta) -> Disk Usage main windows focus still at PGAdmin Extension, as a workaround just click on some left main pane options such as Home or Containers and go back to the desire extension. This problem is visible also when using Logs Explorer and the extension is showing a lot of logs.
