@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v6.12.0
+
+- Upgrade to latest PGAdmin4 version
+
 ## v6.10.0
 
 - Redefined Home Page
