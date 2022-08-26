@@ -4,7 +4,7 @@ services:
   pgadmin4-docker-extension:
     image: ${DESKTOP_PLUGIN_IMAGE}
   pgadmin:
-    image: mochoa/pgadmin4:6.12
+    image: dpage/pgadmin4:6.13
     restart: unless-stopped
     volumes:
       - pgadmin_data:/var/lib/pgadmin

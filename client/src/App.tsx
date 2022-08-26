@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LinearProgress, Typography, Grid } from '@mui/material';
+import { Box, LinearProgress, Typography, Grid, useTheme, useMediaQuery } from '@mui/material';
 import { createDockerDesktopClient } from '@docker/extension-api-client';
 
 const client = createDockerDesktopClient();
@@ -9,47 +9,85 @@ function useDockerDesktopClient() {
 }
 
 export function App() {
-  const [ready, setReady] = useState<boolean>(false);
+  const [ready, setReady] = useState(false);
+  const [unavailable, setUnavailable] = useState(false);
   const ddClient = useDockerDesktopClient();
+  const theme = useTheme();
+  const isDarkModeEnabled = useMediaQuery('(prefers-color-scheme: dark)');
 
   useEffect(() => {
-    const checkIfPGAdminIsReady = async () => {
-      const result = await ddClient.extension.vm?.service?.get('/ready');
-      const ready = Boolean(result);
-      if (ready) {
-        clearInterval(timer);
-      }
-      setReady(ready);
+    let timer: number;
+    // sqlite3 pgadmin4.db "SELECT id,name from preferences where name='theme';" => 112|theme
+    // sqlite3 pgadmin4.db "SELECT * from user_preferences where pid=112;"       => 112|1|dark
+    let sqlCmd = '\'import sqlite3;c=sqlite3.connect("/var/lib/pgadmin/pgadmin4.db");u=c.cursor();u.execute("insert or replace into user_preferences (pid,uid,value) values (?,?,?)",(112,1,"'.concat((isDarkModeEnabled) ? 'dark' : 'standard').concat('"));c.commit();u.close();c.close()\'')
+
+    const start = async () => {
+      setReady(() => false);
+
+      await ddClient.docker.cli.exec("exec", [
+        'mochoa_pgadmin4-docker-extension-desktop-extension-pgadmin-1',
+        'python3',
+        '-c',
+        sqlCmd
+      ]);
     };
 
-    let timer = setInterval(() => {
-      checkIfPGAdminIsReady();
-    }, 1000);
+    start().then(() => {
+      let retries = 10;
+      let timer = setInterval(async () => {
+
+        if (retries == 0) {
+          clearInterval(timer);
+          setUnavailable(true);
+        }
+
+        try {
+          const result = await ddClient.extension.vm?.service?.get('/ready');
+
+          if (Boolean(result)) {
+            setReady(() => true);
+            clearInterval(timer);
+          }
+        } catch (error) {
+          console.log('error when checking PGAdmin status', error);
+          retries--;
+        }
+      }, 1000);
+    }).catch(error => {
+      console.log('failed to start PGAdmin4', error);
+      setUnavailable(true);
+    })
 
     return () => {
       clearInterval(timer);
     };
-  }, []);
-
-  useEffect(() => {
-    if (ready) {
-      window.location.href = 'http://localhost:9080/browser/';
-    }
-  }, [ready]);
+  }, [theme]);
 
   return (
-    <Grid container flex={1} direction="column" spacing={4}>
-      <Grid item justifyContent="center" textAlign="center" minHeight="80px">
-        {!ready && (
-          <>
-            <LinearProgress />
+    <>
+      {unavailable && (
+        <Grid container flex={1} direction="column" padding="16px 32px" height="100%" justifyContent="center" alignItems="center">
+          <Grid item>
+            PGAdmin4 failed to start, please close the extension and reopen/reinstall to try again.
+          </Grid>
+        </Grid>
+      )}
+      {!ready && (
+        <Grid container flex={1} direction="column" padding="16px 32px" height="100%" justifyContent="center" alignItems="center">
+          <Grid item>
+            <LinearProgress/>
             <Typography mt={2}>
-              Waiting for PGAdmin to be ready. It may take several seconds if
+              Waiting for PGAdmin4 to be ready. It may take some seconds if
               it's the first time.
             </Typography>
-          </>
-        )}
-      </Grid>
-    </Grid>
+          </Grid>
+        </Grid>
+      )}
+      {ready && (
+        <Box display="flex" flex={1} width="100%" height="100%">
+          <iframe src='http://localhost:9080/browser/' width="100%" height="100%" />
+        </Box>
+      )}
+    </>
   );
 }

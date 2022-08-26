@@ -2,7 +2,7 @@ all: clean extension install
 
 ORG=mochoa
 PGADMIN_IMAGE_NAME=mochoa/pgadmin4
-VERSION=6.12
+VERSION=6.13
 MINOR=0
 IMAGE_NAME=$(ORG)/pgadmin4-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION).${MINOR}
@@ -17,7 +17,7 @@ extension:
 pgadmin4-dark:
 	docker build -t $(PGADMIN_IMAGE_NAME):$(VERSION) --build-arg VERSION=$(VERSION) --build-arg PGADMIN_IMAGE_NAME=dpage/pgadmin4 -f Dockerfile.pgadmin4 .
 
-install:
+install: extension
 	docker extension install $(TAGGED_IMAGE_NAME)
 
 validate: extension

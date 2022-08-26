@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## v6.13.0
+
+- Upgrade to latest PGAdmin4 version
+- Added switch dark/light mode based on Docker Desktop settings
+- Use default PGAdmin4 docker image
+
 ## v6.12.0
 
 - Upgrade to latest PGAdmin4 version

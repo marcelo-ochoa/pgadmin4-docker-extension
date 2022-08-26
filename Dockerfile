@@ -1,7 +1,3 @@
-ARG VERSION=6.12
-ARG PGADMIN_IMAGE_NAME=mochoa/pgadmin4
-FROM ${PGADMIN_IMAGE_NAME}:${VERSION} as pgadmin4
-
 FROM --platform=$BUILDPLATFORM node:17.7-alpine3.14 AS client-builder
 WORKDIR /app/client
 # cache packages in layer
@@ -48,7 +44,6 @@ LABEL com.docker.extension.detailed-description="PGAdmin4 Desktop Extension is d
 COPY pgadmin.svg metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
-COPY --from=pgadmin4 /pgadmin4/docs ui/docs
 COPY --from=builder /backend/bin/service /
 
 CMD /service -socket /run/guest-services/pgadmin4-docker-extension.sock
