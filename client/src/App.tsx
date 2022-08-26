@@ -19,8 +19,8 @@ export function App() {
     let timer: number;
     // sqlite3 pgadmin4.db "SELECT id,name from preferences where name='theme';" => 112|theme
     // sqlite3 pgadmin4.db "SELECT * from user_preferences where pid=112;"       => 112|1|dark
-    let sqlCmd = '\'import sqlite3;c=sqlite3.connect("/var/lib/pgadmin/pgadmin4.db");u=c.cursor();u.execute("insert or replace into user_preferences (pid,uid,value) values (?,?,?)",(112,1,"'.concat((isDarkModeEnabled) ? 'dark' : 'standard').concat('"));c.commit();u.close();c.close()\'')
-
+    let sqlCmd = '"import sqlite3;c=sqlite3.connect(\'/var/lib/pgadmin/pgadmin4.db\');u=c.cursor();u.execute(\'insert or replace into user_preferences (pid,uid,value) values (?,?,?)\',(112,1,\''.concat((isDarkModeEnabled) ? 'dark' : 'standard').concat('\'));c.commit();u.close();c.close()"')
+    // console.log(sqlCmd);
     const start = async () => {
       setReady(() => false);
 
