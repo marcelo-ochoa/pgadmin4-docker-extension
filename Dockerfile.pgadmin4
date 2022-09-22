@@ -1,9 +1,0 @@
-ARG VERSION=6.13
-ARG PGADMIN_IMAGE_NAME=dpage/pgadmin4
-FROM ${PGADMIN_IMAGE_NAME}:${VERSION}
-
-USER root
-
-COPY pgadmin4/pgadmin/misc/__init__.py /pgadmin4/pgadmin/misc/__init__.py
-
-USER pgadmin

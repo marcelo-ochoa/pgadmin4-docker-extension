@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## v6.14.0
+
+- Upgrade to latest PGAdmin4 version
+- Minor fix on metadata and error log reporting
+
 ## v6.13.0
 
 - Upgrade to latest PGAdmin4 version

@@ -33,7 +33,7 @@ export function App() {
     };
 
     start().then(() => {
-      let retries = 10;
+      let retries = 60;
       let timer = setInterval(async () => {
 
         if (retries == 0) {
@@ -55,6 +55,7 @@ export function App() {
       }, 1000);
     }).catch(error => {
       console.log('failed to start PGAdmin4', error);
+      ddClient.desktopUI.toast.error(error);
       setUnavailable(true);
     })
 
