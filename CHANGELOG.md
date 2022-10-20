@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## v6.15.0
+
+- Upgrade to latest PGAdmin4 version
+- Fix double set when working on dark mode
+- Added category metadata
+
 ## v6.14.0
 
 - Upgrade to latest PGAdmin4 version

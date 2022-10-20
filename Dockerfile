@@ -28,6 +28,7 @@ LABEL org.opencontainers.image.title="Open Source management tool for PostgreSQL
 LABEL org.opencontainers.image.description="Docker Extension for using an embedded PGAdmin4 Open Source management tool for PostgreSQL."
 LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
+LABEL com.docker.extension.categories="database,utility-tools"
 LABEL com.docker.extension.screenshots="[{\"alt\":\"Unlock personal Store\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/docs/images/screenshot2.png\"},\
     {\"alt\":\"Dashboard\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/docs/images/screenshot3.png\"},\
     {\"alt\":\"Query Tool\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/pgadmin4-docker-extension/main/docs/images/screenshot4.png\"}]"
