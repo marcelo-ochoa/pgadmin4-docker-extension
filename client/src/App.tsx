@@ -12,12 +12,10 @@ export function App() {
   const [ready, setReady] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
   const ddClient = useDockerDesktopClient();
-  const theme = useTheme();
-  const isDarkModeEnabled = useMediaQuery('(prefers-color-scheme: dark)');
+  const isDarkModeEnabled = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true });
 
   useEffect(() => {
     let timer: number;
-    console.log((isDarkModeEnabled) ? 'dark' : 'standard');
     // sqlite3 pgadmin4.db "SELECT id,name from preferences where name='theme';" => 110|theme
     // sqlite3 pgadmin4.db "SELECT * from user_preferences where pid=112;"       => 110|1|dark
     let sqlCmd = '"import sqlite3;c=sqlite3.connect(\'/var/lib/pgadmin/pgadmin4.db\');u=c.cursor();u.execute(\'insert or replace into user_preferences (pid,uid,value) values ((SELECT id from preferences where name=?),1,?)\',(\'theme\',\''.concat((isDarkModeEnabled) ? 'dark' : 'standard').concat('\'));c.commit();u.close();c.close()"')
@@ -63,7 +61,7 @@ export function App() {
     return () => {
       clearInterval(timer);
     };
-  }, [theme]);
+  }, [isDarkModeEnabled]);
 
   return (
     <>
