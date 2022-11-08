@@ -1,4 +1,4 @@
-# Docker Extension
+# PGAdmin4 Docker Extension
 
 PGAdmin4 extension for Docker Desktop
 
