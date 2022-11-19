@@ -11,11 +11,11 @@ Since Docker Desktop [v4.11.0](https://docs.docker.com/desktop/release-notes/#do
 If you are using Docker Desktop [v4.10.1](https://docs.docker.com/desktop/release-notes/#docker-desktop-4101) or less  you can install just by executing:
 
 ```bash
-$ docker extension install mochoa/pgadmin4-docker-extension:6.15.1
+$ docker extension install mochoa/pgadmin4-docker-extension:6.16.0
 Extensions can install binaries, invoke commands and access files on your machine.
 Are you sure you want to continue? [y/N] y
-Image not available locally, pulling mochoa/pgadmin4-docker-extension:6.15.1...
-Installing new extension "mochoa/pgadmin4-docker-extension:6.15.1"
+Image not available locally, pulling mochoa/pgadmin4-docker-extension:6.16.0...
+Installing new extension "mochoa/pgadmin4-docker-extension:6.16.0"
 Installing service in Desktop VM...
 Setting additional compose attributes
 VM service started
@@ -56,3 +56,16 @@ which means for a PGAdmin Add New Server:
 by choosing Save Password, the above password is stored at PGAdmin4 internal storage and will remain until you de-install this extension.
 
 ![Screenshot of Add New Server](docs/images/screenshot4.png?raw=true)
+
+## Uninstall
+
+To uninstall the extension just execute:
+
+```bash
+$ docker extension uninstall mochoa/pgadmin4-docker-extension:6.16.0
+Extension "PGAdmin4" uninstalled successfully
+```
+
+## Sources
+
+As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/pgadmin4-docker-extension), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.

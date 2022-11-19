@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v6.10.0
+
+- Upgrade to latest PGAdmin4 version
+
 ## v6.15.1
 
 - Applied PR #5, dark ligh/dark mode autodetect using MUI 0.0.9 version
