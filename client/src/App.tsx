@@ -27,7 +27,9 @@ export function App() {
         'mochoa_pgadmin4-docker-extension-desktop-extension-pgadmin-1',
         'python3',
         '-c',
-        sqlCmd
+        sqlCmd,
+        '||',
+        'true'
       ]);
     };
 
