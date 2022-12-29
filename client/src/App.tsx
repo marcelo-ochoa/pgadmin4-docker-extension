@@ -24,12 +24,11 @@ export function App() {
       setReady(() => false);
 
       await ddClient.docker.cli.exec("exec", [
+        '-d',
         'mochoa_pgadmin4-docker-extension-desktop-extension-pgadmin-1',
         'python3',
         '-c',
-        sqlCmd,
-        '||',
-        'true'
+        sqlCmd
       ]);
     };
 
