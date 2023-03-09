@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## v6.21.0
+
+- Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/6.21/release_notes_6_21.html) version
+- Fixed problem when DD swap container names
+- Use a higher port to avoid conflict with other stacks
+
 ## v6.20.0
 
 - Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/6.20/release_notes_6_20.html) version

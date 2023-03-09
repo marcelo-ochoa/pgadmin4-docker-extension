@@ -4,7 +4,8 @@ services:
   pgadmin4-docker-extension:
     image: ${DESKTOP_PLUGIN_IMAGE}
   pgadmin:
-    image: dpage/pgadmin4:6.20
+    image: dpage/pgadmin4:6.21
+    container_name: pgadmin4_embedded_dd_vm
     restart: unless-stopped
     volumes:
       - pgadmin_data:/var/lib/pgadmin
@@ -22,6 +23,6 @@ services:
       - "PGADMIN_CONFIG_SESSION_COOKIE_SECURE=True"
       - "GUNICORN_ACCESS_LOGFILE=/dev/null"
     ports:
-      - 9080:9080
+      - 59080:9080
 volumes:
   pgadmin_data:

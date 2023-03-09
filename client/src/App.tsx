@@ -25,7 +25,7 @@ export function App() {
 
       await ddClient.docker.cli.exec("exec", [
         '-d',
-        'mochoa_pgadmin4-docker-extension-desktop-extension-pgadmin-1',
+        'pgadmin4_embedded_dd_vm',
         'python3',
         '-c',
         sqlCmd
@@ -86,7 +86,7 @@ export function App() {
       )}
       {ready && (
         <Box display="flex" flex={1} width="100%" height="100%">
-          <iframe src='http://localhost:9080/browser/' width="100%" height="100%" />
+          <iframe src='http://localhost:59080/browser/' width="100%" height="100%" />
         </Box>
       )}
     </>
