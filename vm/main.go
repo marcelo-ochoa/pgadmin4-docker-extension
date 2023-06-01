@@ -41,7 +41,7 @@ func listen(path string) (net.Listener, error) {
 
 // ready checks whether PGAdmin is ready or not by querying localhost:9080.
 func ready(ctx echo.Context) error {
-	url := "http://pgadmin:9080/browser/" // "pgadmin" is the name of the service defined in docker-compose.yml
+	url := "http://pgadmin:9080/misc/ping" // "pgadmin" is the name of the service defined in docker-compose.yml
 	resp, err := http.Get(url)
 	if err != nil {
 		log.Println(err)
