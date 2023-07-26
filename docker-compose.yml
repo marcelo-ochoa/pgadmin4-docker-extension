@@ -8,6 +8,7 @@ services:
     container_name: pgadmin4_embedded_dd_vm
     restart: unless-stopped
     volumes:
+      - pgadmin_home:/home/pgadmin
       - pgadmin_data:/var/lib/pgadmin
     environment:
       - "PGADMIN_DEFAULT_EMAIL=user@domain.com"
@@ -25,4 +26,5 @@ services:
     ports:
       - 59080:9080
 volumes:
+  pgadmin_home:
   pgadmin_data:
