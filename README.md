@@ -2,7 +2,7 @@
 
 PGAdmin4 extension for Docker Desktop
 
-## Installation from Makertplace
+## Installation from Marketplace
 
 Since Docker Desktop [v4.11.0](https://docs.docker.com/desktop/release-notes/#docker-desktop-4110) PGAdmin4 Extension is available in Marketplace page, just click on **+ Add Extensions**, find PGAdmin4 Extension, click Install and that's all; PGAdmin4 icon its shown at left side menu (Extensions Beta).
 
