@@ -2,7 +2,7 @@ all: clean extension install
 
 ORG=mochoa
 PGADMIN_IMAGE_NAME=mochoa/pgadmin4
-VERSION=7.7
+VERSION=7.8
 MINOR=0
 IMAGE_NAME=$(ORG)/pgadmin4-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION).${MINOR}
@@ -12,7 +12,7 @@ clean:
 	-docker rmi $(TAGGED_IMAGE_NAME)
 
 extension:
-	docker buildx build -t $(TAGGED_IMAGE_NAME) --build-arg VERSION=$(VERSION) --build-arg PGADMIN_IMAGE_NAME=$(PGADMIN_IMAGE_NAME) .
+	docker buildx build --load -t $(TAGGED_IMAGE_NAME) --build-arg VERSION=$(VERSION) --build-arg PGADMIN_IMAGE_NAME=$(PGADMIN_IMAGE_NAME) .
 
 install:
 	docker extension install -f $(TAGGED_IMAGE_NAME)
