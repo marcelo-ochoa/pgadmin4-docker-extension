@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## v8.0.0
+
+- Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/8.0/release_notes_8_0.html) version
+- Upgrading from v7.x versions is not supported, almost in my test, uninstall the extension and install this new version, before that, you can export server definitions following the section ![Export/Import Servers connections](README.md#exportimport-servers-connections) at README.md file.
+
 ## v7.8.0
 
 - Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/7.8/release_notes_7_8.html) version

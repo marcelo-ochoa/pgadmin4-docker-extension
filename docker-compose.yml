@@ -4,7 +4,7 @@ services:
   pgadmin4-docker-extension:
     image: ${DESKTOP_PLUGIN_IMAGE}
   pgadmin:
-    image: dpage/pgadmin4:7.8
+    image: dpage/pgadmin4:8.0
     container_name: pgadmin4_embedded_dd_vm
     restart: unless-stopped
     volumes:

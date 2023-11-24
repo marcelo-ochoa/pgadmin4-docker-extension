@@ -11,11 +11,11 @@ Since Docker Desktop [v4.11.0](https://docs.docker.com/desktop/release-notes/#do
 If you are using Docker Desktop [v4.10.1](https://docs.docker.com/desktop/release-notes/#docker-desktop-4101) or less  you can install just by executing:
 
 ```bash
-$ docker extension install mochoa/pgadmin4-docker-extension:7.8.0
+$ docker extension install mochoa/pgadmin4-docker-extension:8.0.0
 Extensions can install binaries, invoke commands and access files on your machine.
 Are you sure you want to continue? [y/N] y
-Image not available locally, pulling mochoa/pgadmin4-docker-extension:7.8.0...
-Installing new extension "mochoa/pgadmin4-docker-extension:7.8.0"
+Image not available locally, pulling mochoa/pgadmin4-docker-extension:8.0.0...
+Installing new extension "mochoa/pgadmin4-docker-extension:8.0.0"
 Installing service in Desktop VM...
 Setting additional compose attributes
 VM service started
@@ -62,10 +62,42 @@ by choosing Save Password, the above password is stored at PGAdmin4 internal sto
 To uninstall the extension just execute:
 
 ```bash
-$ docker extension uninstall mochoa/pgadmin4-docker-extension:7.8.0
+$ docker extension uninstall mochoa/pgadmin4-docker-extension:8.0.0
 Extension "PGAdmin4" uninstalled successfully
 ```
 
 ## Sources
 
 As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/pgadmin4-docker-extension), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.
+
+## Export/Import Servers connections
+
+You can Export/Import all your Servers connections, except passwords, using the menu Tools->Import/Export Servers, here a sequence:
+
+- ![Chose Export Filename](docs/images/screenshot5.png?raw=true)
+- ![Select the Server Groups/Servers to export](docs/images/screenshot6.png?raw=true)
+- ![Confirm Export Operation by click Finish](docs/images/screenshot6.png?raw=true)
+
+Finally open a terminal windows and execute:
+
+```bash
+docker cp pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/Servers.json Desktop/Servers.json 
+Successfully copied 3.07kB to /home/mochoa/Desktop/Servers.json
+```
+
+If you need to import above export connections in new installed PGAdmin Docker Desktop Extension, do these steps:
+
+- first copy your local copy of server connections using a terminal window:
+
+```bash
+docker cp Desktop/Servers.json pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/
+Successfully copied 3.07kB to pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/
+```
+
+- ![Chose Import Filename](docs/images/screenshot8.png?raw=true)
+- ![Select the Server Groups/Servers to import](docs/images/screenshot9.png?raw=true)
+- ![Confirm Import Operation by click Finish](docs/images/screenshot10.png?raw=true)
+
+When you open a new imported connection PGAdmin Docker Desktop Extension will ask you for password
+
+![Confirm Import Operation by click Finish](docs/images/screenshot10.png?raw=true)
