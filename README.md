@@ -78,19 +78,19 @@ You can Export/Import all your Servers connections, except passwords, using the 
 - ![Select the Server Groups/Servers to export](docs/images/screenshot6.png?raw=true)
 - ![Confirm Export Operation by click Finish](docs/images/screenshot6.png?raw=true)
 
-Finally open a terminal windows and execute:
+Finally open a terminal window and execute:
 
 ```bash
-docker cp pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/Servers.json Desktop/Servers.json 
+$ docker cp pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/Servers.json Desktop/Servers.json 
 Successfully copied 3.07kB to /home/mochoa/Desktop/Servers.json
 ```
 
-If you need to import above export connections in new installed PGAdmin Docker Desktop Extension, do these steps:
+If you need to import above export connections in a new installed PGAdmin Docker Desktop Extension, do these steps:
 
 - first copy your local copy of server connections using a terminal window:
 
 ```bash
-docker cp Desktop/Servers.json pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/
+$ docker cp Desktop/Servers.json pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/
 Successfully copied 3.07kB to pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/
 ```
 
@@ -100,4 +100,4 @@ Successfully copied 3.07kB to pgadmin4_embedded_dd_vm:/var/lib/pgadmin/storage/
 
 When you open a new imported connection PGAdmin Docker Desktop Extension will ask you for password
 
-![Confirm Import Operation by click Finish](docs/images/screenshot10.png?raw=true)
+![Confirm Import Operation by click Finish](docs/images/screenshot11.png?raw=true)
