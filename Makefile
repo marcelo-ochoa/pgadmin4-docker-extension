@@ -2,7 +2,7 @@ all: clean extension install
 
 ORG=mochoa
 PGADMIN_IMAGE_NAME=mochoa/pgadmin4
-VERSION=8.0
+VERSION=8.1
 MINOR=0
 IMAGE_NAME=$(ORG)/pgadmin4-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION).${MINOR}
@@ -28,6 +28,3 @@ multiarch:
 
 build:
 	docker buildx build --push --builder=buildx-multi-arch --platform=linux/amd64,linux/arm64 --build-arg PGADMIN_IMAGE_NAME=$(PGADMIN_IMAGE_NAME) --tag=$(TAGGED_IMAGE_NAME) .
-
-build-pgadmin4-dark:
-	docker buildx build --push --builder=buildx-multi-arch --platform=linux/amd64,linux/arm64 --build-arg PGADMIN_IMAGE_NAME=dpage/pgadmin4 --tag=$(PGADMIN_IMAGE_NAME):$(VERSION) -f Dockerfile.pgadmin4 .
