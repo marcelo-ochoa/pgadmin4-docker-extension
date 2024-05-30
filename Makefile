@@ -1,7 +1,7 @@
 all: clean extension install
 
 ORG=mochoa
-VERSION=8.6
+VERSION=8.7
 MINOR=0
 IMAGE_NAME=$(ORG)/pgadmin4-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION).${MINOR}
