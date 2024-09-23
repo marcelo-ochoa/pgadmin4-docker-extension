@@ -22,7 +22,7 @@ RUN --mount=type=cache,target=/go/pkg/mod \
     --mount=type=cache,target=/root/.cache/go-build \
     go build -trimpath -ldflags="-s -w" -o bin/service
 
-FROM alpine:3.15
+FROM alpine:3.20
 
 LABEL org.opencontainers.image.title="Open Source management tool for PostgreSQL"
 LABEL org.opencontainers.image.description="Docker Extension for using an embedded PGAdmin4 Open Source management tool for PostgreSQL."

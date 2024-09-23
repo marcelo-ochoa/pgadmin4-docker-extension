@@ -1,7 +1,7 @@
 all: clean extension install
 
 ORG=mochoa
-VERSION=8.11
+VERSION=8.12
 MINOR=0
 IMAGE_NAME=$(ORG)/pgadmin4-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION).${MINOR}
@@ -13,7 +13,7 @@ clean:
 extension:
 	docker buildx build --load -t $(TAGGED_IMAGE_NAME) .
 
-install:
+install: extension
 	docker extension install -f $(TAGGED_IMAGE_NAME)
 
 validate: extension
