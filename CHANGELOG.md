@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v8.13.0
+
+- Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/8.13/release_notes_8_13.html) version
+
 ## v8.12.0
 
 - Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/8.12/release_notes_8_12.html) version
