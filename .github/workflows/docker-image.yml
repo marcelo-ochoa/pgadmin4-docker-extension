@@ -26,4 +26,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: mochoa/pgadmin4-docker-extension:8.14.0
+          tags: mochoa/pgadmin4-docker-extension:9.0.0
