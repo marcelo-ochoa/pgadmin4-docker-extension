@@ -16,9 +16,9 @@ export function App() {
 
   useEffect(() => {
     let timer: number;
-    // sqlite3 pgadmin4.db "SELECT id,name from preferences where name='theme';" => 110|theme
-    // sqlite3 pgadmin4.db "SELECT * from user_preferences where pid=112;"       => 110|1|dark
-    let sqlCmd = '"import sqlite3;c=sqlite3.connect(\'/var/lib/pgadmin/pgadmin4.db\');u=c.cursor();u.execute(\'insert or replace into user_preferences (pid,uid,value) values ((SELECT id from preferences where name=?),1,?)\',(\'theme\',\''.concat((isDarkModeEnabled) ? 'dark' : 'standard').concat('\'));c.commit();u.close();c.close()"')
+    // sqlite3 pgadmin4.db "SELECT id,name from preferences where name='theme';" => 253|theme
+    // sqlite3 pgadmin4.db "SELECT * from user_preferences where pid=112;"       => 253|1|system
+    let sqlCmd = '"import sqlite3;c=sqlite3.connect(\'/var/lib/pgadmin/pgadmin4.db\');u=c.cursor();u.execute(\'insert or replace into user_preferences (pid,uid,value) values ((SELECT id from preferences where name=?),1,?)\',(\'theme\',\'system\'));c.commit();u.close();c.close()"'
     //console.log(sqlCmd);
     const start = async () => {
       setReady(() => false);

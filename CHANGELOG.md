@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## v9.3.0
+
+- Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/9.3/release_notes_9_3.html) version
+- Change theme selection to system
+
 ## v9.2.0
 
 - Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/9.2/release_notes_9_2.html) version
