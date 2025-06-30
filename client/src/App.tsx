@@ -15,7 +15,7 @@ export function App() {
   const isDarkModeEnabled = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true });
 
   useEffect(() => {
-    let timer: number;
+    let timer: NodeJS.Timeout | undefined;
     // sqlite3 pgadmin4.db "SELECT id,name from preferences where name='theme';" => 253|theme
     // sqlite3 pgadmin4.db "SELECT * from user_preferences where pid=112;"       => 253|1|system
     let sqlCmd = '"import sqlite3;c=sqlite3.connect(\'/var/lib/pgadmin/pgadmin4.db\');u=c.cursor();u.execute(\'insert or replace into user_preferences (pid,uid,value) values ((SELECT id from preferences where name=?),1,?)\',(\'theme\',\'system\'));c.commit();u.close();c.close()"'
@@ -60,7 +60,9 @@ export function App() {
     })
 
     return () => {
-      clearInterval(timer);
+      if (timer) {
+        clearInterval(timer);
+      }
     };
   }, [isDarkModeEnabled]);
 
@@ -84,7 +86,19 @@ export function App() {
           </Grid>
         </Grid>
       )}
-      {ready && (window.location.href = 'http://localhost:59080/browser/')}
+      {ready && (
+        <Box
+          component="iframe"
+          src="http://localhost:59080/browser/"
+          width="100%"
+          height="100%"
+          sx={{
+            border: 'none',
+            display: 'block'
+          }}
+          title="PGAdmin4"
+        />
+      )}
     </>
   );
 }
