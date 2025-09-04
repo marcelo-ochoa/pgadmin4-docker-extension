@@ -11,11 +11,11 @@ Since Docker Desktop [v4.11.0](https://docs.docker.com/desktop/release-notes/#do
 If you are using Docker Desktop [v4.10.1](https://docs.docker.com/desktop/release-notes/#docker-desktop-4101) or less  you can install just by executing:
 
 ```bash
-$ docker extension install mochoa/pgadmin4-docker-extension:9.7.0
+$ docker extension install mochoa/pgadmin4-docker-extension:8.0
 Extensions can install binaries, invoke commands and access files on your machine.
 Are you sure you want to continue? [y/N] y
-Image not available locally, pulling mochoa/pgadmin4-docker-extension:9.7.0...
-Installing new extension "mochoa/pgadmin4-docker-extension:9.7.0"
+Image not available locally, pulling mochoa/pgadmin4-docker-extension:9.8.0...
+Installing new extension "mochoa/pgadmin4-docker-extension:9.8.0"
 Installing service in Desktop VM...
 Setting additional compose attributes
 VM service started
@@ -62,7 +62,7 @@ by choosing Save Password, the above password is stored at PGAdmin4 internal sto
 To uninstall the extension just execute:
 
 ```bash
-$ docker extension uninstall mochoa/pgadmin4-docker-extension:9.7.0
+$ docker extension uninstall mochoa/pgadmin4-docker-extension:9.8.0
 Extension "PGAdmin4" uninstalled successfully
 ```
 
