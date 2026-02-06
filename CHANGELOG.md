@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v9.12.0
+
+- Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/9.12/release_notes_9_12.html) version
+
 ## v9.11.0
 
 - Upgrade to latest [PGAdmin4](https://www.pgadmin.org/docs/pgadmin4/9.11/release_notes_9_11.html) version
